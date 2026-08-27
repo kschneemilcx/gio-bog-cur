@@ -74,5 +74,130 @@
     "note": "Averages filled as observations arrive. Weekday/hour of BUY, same flight."
   },
   "aleja_low_26ago": 914000,
-  "check_cadence": "hourly 24/7 at :22 America/Bogota"
+  "check_cadence": "every 30 min at :04 and :34 America/Bogota",
+  "roundtrip": {
+    "outbound_date": "2026-10-19",
+    "return_date": "2026-10-24",
+    "currency": "COP",
+    "as_of": "2026-08-27T13:19:24.383412-05:00",
+    "source": "Google Flights round-trip 1 adult",
+    "cheapest_cash_cop": 1468080,
+    "cheapest_label": "Copa 12:08 1 escala PTY",
+    "flights_outbound": [
+      {
+        "depart": "12:08",
+        "arrive": "18:20",
+        "airline": "Copa",
+        "stops": 1,
+        "via": "PTY",
+        "duration": "5h12",
+        "cash_cop": 1468080,
+        "direct": false
+      },
+      {
+        "depart": "18:17",
+        "arrive": "12:18+1",
+        "airline": "Copa",
+        "stops": 1,
+        "via": "PTY",
+        "duration": "17h01",
+        "cash_cop": 1502240,
+        "direct": false
+      },
+      {
+        "depart": "14:00",
+        "arrive": "17:00",
+        "airline": "Avianca",
+        "flight": "AV78",
+        "stops": 0,
+        "duration": "2h00",
+        "cash_cop": 1562660,
+        "direct": true
+      },
+      {
+        "depart": "07:00",
+        "arrive": "14:36",
+        "airline": "Copa",
+        "stops": 1,
+        "via": "PTY",
+        "duration": "6h36",
+        "cash_cop": 1584150,
+        "direct": false
+      },
+      {
+        "depart": "06:10",
+        "arrive": "12:18",
+        "airline": "Copa",
+        "stops": 1,
+        "via": "PTY",
+        "duration": "5h08",
+        "cash_cop": 1635390,
+        "direct": false
+      },
+      {
+        "depart": "08:50",
+        "arrive": "14:36",
+        "airline": "Copa",
+        "stops": 1,
+        "via": "PTY",
+        "duration": "4h46",
+        "cash_cop": 1676350,
+        "direct": false
+      },
+      {
+        "depart": "07:30",
+        "arrive": "18:20",
+        "airline": "Avianca+Copa",
+        "stops": 2,
+        "via": "SJO,PTY",
+        "duration": "9h50",
+        "cash_cop": 2736200,
+        "direct": false
+      },
+      {
+        "depart": "07:25",
+        "arrive": "10:20",
+        "airline": "Avianca",
+        "flight": "AV92",
+        "stops": 0,
+        "duration": "1h55",
+        "cash_cop": 2764640,
+        "direct": true
+      },
+      {
+        "depart": "22:40",
+        "arrive": "12:18+1",
+        "airline": "Avianca+Copa",
+        "stops": 2,
+        "via": "SJO,PTY",
+        "duration": "12h38",
+        "cash_cop": 2770360,
+        "direct": false
+      },
+      {
+        "depart": "07:55",
+        "arrive": "18:20",
+        "airline": "Avianca+Copa",
+        "stops": 2,
+        "via": "AUA,PTY",
+        "duration": "9h25",
+        "cash_cop": 6285520,
+        "direct": false
+      }
+    ],
+    "lifemiles": null,
+    "lowest_cash_cop": 1468080,
+    "latest_cheapest_cash_cop": 1468080,
+    "history": [
+      {
+        "ts": "2026-08-27T13:19:24.383412-05:00",
+        "weekday": "jueves",
+        "hour_cot": 13,
+        "cheapest_cash_cop": 1468080,
+        "av92_rt_cash_cop": 2764640,
+        "av78_rt_cash_cop": 1562660,
+        "source": "Google Flights RT 19-24 oct"
+      }
+    ]
+  }
 }

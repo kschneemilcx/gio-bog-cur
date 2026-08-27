@@ -137,6 +137,20 @@ svg.sky{width:100%;height:clamp(64px,14vw,110px);overflow:visible}
 .hours{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
 .hcell{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:8px 4px;text-align:center;font-size:10px;color:var(--muted)}
 .empty{opacity:.7;font-size:13px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tab{
+  border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--muted);
+  border-radius:999px; padding:9px 16px; font:650 13px Outfit,sans-serif; cursor:pointer;
+  letter-spacing:.04em;
+}
+.tab.on{background:linear-gradient(160deg,#ff2d4a,#9b1024); color:#fff; border-color:transparent}
+.rt-best .price{color:var(--go)}
+.flights td.av{outline:1px solid rgba(232,195,122,.45); background:rgba(232,195,122,.07)}
+.flights td.best{outline:1px solid rgba(62,224,160,.4); background:rgba(62,224,160,.07)}
+.tag{display:inline-block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line);margin-left:6px}
+.tag.go{color:var(--go);border-color:rgba(62,224,160,.4)}
+.tag.gold{color:var(--gold);border-color:rgba(232,195,122,.4)}
+
 .hist-card{margin-top:14px}
 .hist-card .hist{height:240px;width:100%}
 .table-wrap{overflow-x:auto;margin-top:8px}
@@ -204,6 +218,11 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
 </header>
 
 <main class="sheet">
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab on" data-tab="ow">Solo ida · 19 oct</button>
+    <button type="button" class="tab" data-tab="rt">Ida + vuelta · 19–24 oct</button>
+  </div>
+  <div id="panel-ow">
   <div class="duo">
     <section class="card" id="card-cash">
       <div class="k">efectivo · COP</div>
@@ -229,7 +248,7 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
     <div class="card kpi"><div class="k">techo</div><div class="v" id="k-ceil">—</div></div>
     <div class="card kpi"><div class="k">vs piso</div><div class="v" id="k-delta">—</div></div>
     <div class="card kpi"><div class="k">impuestos</div><div class="v" id="k-tax">—</div></div>
-    <div class="card kpi"><div class="k">14:00 cash</div><div class="v" id="k-1400">—</div></div>
+    <div class="card kpi"><div class="k">tipo</div><div class="v" id="k-tipo" style="font-size:16px">solo ida</div></div>
     <div class="card kpi"><div class="k">último pulso</div><div class="v" id="k-ago" style="font-size:15px">—</div></div>
   </div>
   <section class="card hist-card">
@@ -261,10 +280,62 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
       <div class="hours" id="hours"></div>
     </section>
   </div>
-  <p class="foot">Radar GIO · BOG → CUR · se actualiza solo · chequeo cada hora :22 COT</p>
+  </div>
+  <div id="panel-rt" hidden>
+    <div class="duo">
+      <section class="card rt-best" id="card-rt">
+        <div class="k">ida + vuelta · paquete más barato</div>
+        <div class="price" id="rt-best">—</div>
+        <p class="sub" id="rt-best-lab">19 oct → 24 oct · 1 adulto</p>
+        <div class="chips" id="rt-chips"></div>
+      </section>
+      <section class="card miles">
+        <div class="k">LifeMiles · roundtrip</div>
+        <div class="price gold" id="rt-miles">pendiente</div>
+        <p class="sub" id="rt-miles-sub">Viajes está sacando millas RT. No se inventan.</p>
+      </section>
+    </div>
+    <section class="card hist-card" style="margin-top:14px">
+      <div class="k">todos los vuelos · precio de paquete ida+vuelta (pierna de ida)</div>
+      <div class="table-wrap">
+        <table class="hist-table flights">
+          <thead>
+            <tr>
+              <th>sale</th>
+              <th>aerolínea</th>
+              <th>llega</th>
+              <th>escalas</th>
+              <th>duración</th>
+              <th>paquete COP</th>
+            </tr>
+          </thead>
+          <tbody id="rt-flights"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="card hist-card">
+      <div class="k">histórico roundtrip · lo que manda viajes</div>
+      <div class="table-wrap">
+        <table class="hist-table">
+          <thead>
+            <tr>
+              <th>cuándo</th>
+              <th>más barato</th>
+              <th>AV92 RT</th>
+              <th>AV78 RT</th>
+              <th>fuente</th>
+            </tr>
+          </thead>
+          <tbody id="rt-hist"></tbody>
+        </table>
+      </div>
+    </section>
+    <p class="note" id="rt-note" style="margin-top:12px"></p>
+  </div>
+  <p class="foot">Radar GIO · BOG → CUR · solo ida y roundtrip por separado · se actualiza solo</p>
 </main>
 <script>
-const SEED = {"route":"BOG-CUR","airline":"Avianca","date":"2026-10-19","depart":"07:25","flight_number":"AV92","currency":"COP","cash":{"baseline":914000,"lowest":914000,"highest":2206810,"latest":2206810,"source":"Google Flights one-way","as_of":"2026-08-27T16:15:01.408111+00:00","user_yesterday_cop":914000},"lifemiles":{"baseline":40850,"lowest":40850,"highest":40850,"latest":40850,"taxes_cop":305691,"fare":"Light","list_before_elite":43000,"elite_discount_pct":5,"classic":44020,"flex":47180,"lifemiles_plus":38700,"source":"lifemiles.com Colombia, logged in","as_of":"2026-08-27T11:29:36.287840-05:00"},"history":[{"ts":"2026-08-26T12:00:00-05:00","weekday":"miércoles","hour_cot":12,"cash_cop":914000,"lifemiles":null,"source":"GIO","detail":"Piso 26 ago, mismo vuelo 7:25."},{"ts":"2026-08-27T16:15:01.408111+00:00","cash_cop":2206810,"lifemiles":null,"source":"Google Flights one-way (solo ida)","detail":"AV BOG 07:25-CUR 10:20 directo 1h55. Precio 2.206.810 COP.","weekday":"jueves","hour_cot":11},{"ts":"2026-08-27T11:29:36.287840-05:00","weekday":"jueves","hour_cot":11,"cash_cop":2206810,"lifemiles":40850,"taxes_cop":305691,"fare":"Light","flight_number":"AV92","source":"LifeMiles (sesión GIO, región Colombia)","detail":"AV92 07:25-10:20 Light 40850 + 305691 COP (Elite 5%). Classic 44020, Flex 47180. AV78 14:00 desde 12290 (contexto)."}],"arrive":"10:20","duration":"1h55","direct":true,"notes":{"avianca_1400_oneway_cop":900560,"google_route_insight":"precios de la ruta en general bajos; el 7:25 está caro vs el directo de las 14:00"},"stats":{"by_weekday":{},"by_hour":{},"note":"Averages filled as observations arrive. Weekday/hour of BUY, same flight."},"check_cadence":"hourly 24/7 at :22 America/Bogota"};
+const SEED = {"route": "BOG-CUR", "airline": "Avianca", "date": "2026-10-19", "depart": "07:25", "flight_number": "AV92", "currency": "COP", "cash": {"baseline": 914000, "lowest": 914000, "highest": 2206810, "latest": 2206810, "source": "Google Flights one-way", "as_of": "2026-08-27T16:15:01.408111+00:00", "user_yesterday_cop": 914000}, "lifemiles": {"baseline": 40850, "lowest": 40850, "highest": 40850, "latest": 40850, "taxes_cop": 305691, "fare": "Light", "list_before_elite": 43000, "elite_discount_pct": 5, "classic": 44020, "flex": 47180, "lifemiles_plus": 38700, "source": "lifemiles.com Colombia, logged in", "as_of": "2026-08-27T11:29:36.287840-05:00"}, "history": [{"ts": "2026-08-26T12:00:00-05:00", "weekday": "miércoles", "hour_cot": 12, "cash_cop": 914000, "lifemiles": null, "source": "Aleja", "detail": "Precio que Aleja vio ayer (26 ago) en el mismo vuelo 7:25."}, {"ts": "2026-08-27T16:15:01.408111+00:00", "cash_cop": 2206810, "lifemiles": null, "source": "Google Flights one-way (solo ida)", "detail": "AV BOG 07:25-CUR 10:20 directo 1h55. Precio 2.206.810 COP.", "weekday": "jueves", "hour_cot": 11}, {"ts": "2026-08-27T11:29:36.287840-05:00", "weekday": "jueves", "hour_cot": 11, "cash_cop": 2206810, "lifemiles": 40850, "taxes_cop": 305691, "fare": "Light", "flight_number": "AV92", "source": "LifeMiles (sesión Aleja, región Colombia)", "detail": "AV92 07:25-10:20 Light 40850 + 305691 COP (Elite 5%). Classic 44020, Flex 47180. AV78 14:00 desde 12290 (contexto)."}], "arrive": "10:20", "duration": "1h55", "direct": true, "notes": {"avianca_1400_oneway_cop": 900560, "google_route_insight": "precios de la ruta en general bajos; el 7:25 está caro vs el directo de las 14:00"}, "stats": {"by_weekday": {}, "by_hour": {}, "note": "Averages filled as observations arrive. Weekday/hour of BUY, same flight."}, "aleja_low_26ago": 914000, "check_cadence": "every 30 min at :04 and :34 America/Bogota", "roundtrip": {"outbound_date": "2026-10-19", "return_date": "2026-10-24", "currency": "COP", "as_of": "2026-08-27T13:19:24.383412-05:00", "source": "Google Flights round-trip 1 adult", "cheapest_cash_cop": 1468080, "cheapest_label": "Copa 12:08 1 escala PTY", "flights_outbound": [{"depart": "12:08", "arrive": "18:20", "airline": "Copa", "stops": 1, "via": "PTY", "duration": "5h12", "cash_cop": 1468080, "direct": false}, {"depart": "18:17", "arrive": "12:18+1", "airline": "Copa", "stops": 1, "via": "PTY", "duration": "17h01", "cash_cop": 1502240, "direct": false}, {"depart": "14:00", "arrive": "17:00", "airline": "Avianca", "flight": "AV78", "stops": 0, "duration": "2h00", "cash_cop": 1562660, "direct": true}, {"depart": "07:00", "arrive": "14:36", "airline": "Copa", "stops": 1, "via": "PTY", "duration": "6h36", "cash_cop": 1584150, "direct": false}, {"depart": "06:10", "arrive": "12:18", "airline": "Copa", "stops": 1, "via": "PTY", "duration": "5h08", "cash_cop": 1635390, "direct": false}, {"depart": "08:50", "arrive": "14:36", "airline": "Copa", "stops": 1, "via": "PTY", "duration": "4h46", "cash_cop": 1676350, "direct": false}, {"depart": "07:30", "arrive": "18:20", "airline": "Avianca+Copa", "stops": 2, "via": "SJO,PTY", "duration": "9h50", "cash_cop": 2736200, "direct": false}, {"depart": "07:25", "arrive": "10:20", "airline": "Avianca", "flight": "AV92", "stops": 0, "duration": "1h55", "cash_cop": 2764640, "direct": true}, {"depart": "22:40", "arrive": "12:18+1", "airline": "Avianca+Copa", "stops": 2, "via": "SJO,PTY", "duration": "12h38", "cash_cop": 2770360, "direct": false}, {"depart": "07:55", "arrive": "18:20", "airline": "Avianca+Copa", "stops": 2, "via": "AUA,PTY", "duration": "9h25", "cash_cop": 6285520, "direct": false}], "lifemiles": null, "lowest_cash_cop": 1468080, "latest_cheapest_cash_cop": 1468080, "history": [{"ts": "2026-08-27T13:19:24.383412-05:00", "weekday": "jueves", "hour_cot": 13, "cheapest_cash_cop": 1468080, "av92_rt_cash_cop": 2764640, "av78_rt_cash_cop": 1562660, "source": "Google Flights RT 19-24 oct"}]}};
 const cop = n => n==null ? "—" : new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}).format(n);
 const num = n => n==null ? "—" : new Intl.NumberFormat("es-CO").format(n);
 const gio = s => String(s||"").replace(/Aleja/gi,"GIO");
@@ -395,14 +466,12 @@ function render(d, changed){
   document.getElementById("k-ceil").textContent = cop(c.highest);
   document.getElementById("k-delta").textContent = (vs>=0?"+":"")+cop(vs);
   document.getElementById("k-tax").textContent = cop(m.taxes_cop);
-  document.getElementById("k-1400").textContent = cop(d.notes && d.notes.avianca_1400_oneway_cop);
   const asof = c.as_of || m.as_of;
   document.getElementById("k-ago").textContent = asof ? new Date(asof).toLocaleString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"short"}) : "—";
   drawChart(d.history);
   drawHist(d.history);
-  document.getElementById("insight").innerHTML = `<strong>${dec.lab}.</strong> El 7:25 está en el techo (${cop(c.latest)}).
-    Piso ${cop(c.baseline)}. El directo de las 14:00 anda en ${cop(d.notes && d.notes.avianca_1400_oneway_cop)} cash — más barato, otro vuelo.
-    Millas Light ${num(m.latest)} + ${cop(m.taxes_cop)}.`;
+  renderRT(d.roundtrip);
+  document.getElementById("insight").innerHTML = `<strong>${dec.lab}.</strong> Solo ida AV92 07:25 en ${cop(c.latest)}. Piso ${cop(c.baseline)}. Millas Light ${num(m.latest)} + ${cop(m.taxes_cop)}. El roundtrip va en la otra pestaña, no se mezcla.`;
   const hours = document.getElementById("hours");
   const by = (d.stats && d.stats.by_hour) || {};
   hours.innerHTML = Object.keys(by).length
@@ -413,6 +482,64 @@ function render(d, changed){
     if(lastMiles!=null && lastMiles!==m.latest) bang("card-miles");
   }
   lastCash = c.latest; lastMiles = m.latest;
+}
+function stopsLabel(f){
+  if(f.direct || f.stops===0) return "directo";
+  const n = f.stops||1;
+  return n+" escala"+(n>1?"s":"")+(f.via? " · "+f.via:"");
+}
+function renderRT(rt){
+  if(!rt){
+    document.getElementById("rt-best").textContent = "—";
+    document.getElementById("rt-flights").innerHTML = `<tr><td colspan="6" class="empty">Aún no hay roundtrip.</td></tr>`;
+    return;
+  }
+  const best = rt.cheapest_cash_cop || rt.latest_cheapest_cash_cop;
+  document.getElementById("rt-best").textContent = cop(best);
+  document.getElementById("rt-best-lab").textContent =
+    `${rt.cheapest_label||""} · ${rt.outbound_date||"19 oct"} → ${rt.return_date||"24 oct"} · 1 adulto`;
+  const asof = rt.as_of ? new Date(rt.as_of).toLocaleString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"short"}) : "";
+  document.getElementById("rt-chips").innerHTML = `
+    <span class="chip down">más barato ${cop(best)}</span>
+    <span class="chip">${gio(rt.source||"Google Flights RT")}</span>
+    <span class="chip">${asof}</span>`;
+  const lm = rt.lifemiles;
+  if(lm && (lm.latest||lm.light)){
+    document.getElementById("rt-miles").textContent = num(lm.latest||lm.light)+" millas";
+    document.getElementById("rt-miles-sub").textContent = `+ ${cop(lm.taxes_cop)} impuestos`;
+  } else {
+    document.getElementById("rt-miles").textContent = "pendiente";
+    document.getElementById("rt-miles-sub").textContent = "Viajes está sacando millas RT. No se inventan.";
+  }
+  const flights = (rt.flights_outbound||[]).slice().sort((a,b)=>(a.cash_cop||0)-(b.cash_cop||0));
+  document.getElementById("rt-flights").innerHTML = flights.map((f,i)=>{
+    const isAV92 = f.flight==="AV92" || (f.depart==="07:25" && f.airline==="Avianca" && f.direct);
+    const isBest = i===0 || f.cash_cop===best;
+    const cls = isAV92 ? "av" : isBest ? "best" : "";
+    const tag = isAV92 ? '<span class="tag gold">AV92</span>' : isBest ? '<span class="tag go">más barato</span>' : "";
+    return `<tr>
+      <td>${f.depart||"—"}${tag}</td>
+      <td>${f.airline||""} ${f.flight||""}</td>
+      <td>${f.arrive||""}</td>
+      <td>${stopsLabel(f)}</td>
+      <td>${f.duration||""}</td>
+      <td class="cash ${cls}">${cop(f.cash_cop)}</td>
+    </tr>`;
+  }).join("") || `<tr><td colspan="6" class="empty">Sin vuelos RT.</td></tr>`;
+  const hist = (rt.history||[]).slice().reverse();
+  document.getElementById("rt-hist").innerHTML = hist.length ? hist.map(h=>{
+    const w = whenCOT(h);
+    return `<tr>
+      <td class="when"><b>${w.fecha}</b>${w.hora}</td>
+      <td class="cash">${cop(h.cheapest_cash_cop)}</td>
+      <td>${cop(h.av92_rt_cash_cop)}</td>
+      <td>${cop(h.av78_rt_cash_cop)}</td>
+      <td>${gio(h.source||"")}</td>
+    </tr>`;
+  }).join("") : `<tr><td colspan="5" class="empty">Primera toma RT.</td></tr>`;
+  const av92 = (rt.flights_outbound||[]).find(f=>f.flight==="AV92");
+  document.getElementById("rt-note").innerHTML =
+    `<strong>Roundtrip aparte.</strong> Más barato ${cop(best)} (${rt.cheapest_label||""}). AV92 07:25 ida+vuelta ${cop(av92 && av92.cash_cop)}. Millas RT ${lm && (lm.latest||lm.light) ? num(lm.latest||lm.light) : "aún no"}.`;
 }
 function tickClock(){
   document.getElementById("clock").textContent = new Date().toLocaleTimeString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",second:"2-digit"});
@@ -431,7 +558,7 @@ async function pull(){
         .trim();
       if(/Aleja/i.test(h.source)) h.source='GIO';
     });
-    const sig = JSON.stringify({c:d.cash, m:d.lifemiles, h:d.history});
+    const sig = JSON.stringify({c:d.cash, m:d.lifemiles, h:d.history, r:d.roundtrip});
     if(sig===lastSig) return;
     const changed = !!lastSig;
     lastSig = sig;
@@ -441,6 +568,15 @@ async function pull(){
   }
 }
 pull(); setInterval(pull, 8000);
+document.querySelectorAll(".tab").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on", b===btn));
+    const id = btn.dataset.tab;
+    document.getElementById("panel-ow").hidden = id!=="ow";
+    document.getElementById("panel-rt").hidden = id!=="rt";
+  });
+});
+
 document.addEventListener("pointermove", e=>{
   document.getElementById("spot").style.setProperty("--mx", e.clientX+"px");
   document.getElementById("spot").style.setProperty("--my", e.clientY+"px");
