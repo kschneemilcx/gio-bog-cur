@@ -315,16 +315,20 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
       </div>
     </section>
     <section class="card hist-card">
-      <div class="k">regresos 24 oct · Avianca · el cash no cambia con el regreso</div>
+      <div class="k">regresos CUR → BOG · sáb 24 oct · vuelo por vuelo</div>
       <div class="table-wrap">
-        <table class="hist-table">
+        <table class="hist-table flights">
           <thead>
             <tr>
               <th>vuelo</th>
-              <th>sale</th>
-              <th>llega</th>
-              <th>tipo</th>
-              <th>avión</th>
+              <th>sale CUR</th>
+              <th>llega BOG</th>
+              <th>sin millas +AV78</th>
+              <th>sin millas +AV92</th>
+              <th>millas Light tramo</th>
+              <th>con millas +AV78</th>
+              <th>con millas +AV92</th>
+              <th>nota</th>
             </tr>
           </thead>
           <tbody id="rt-returns"></tbody>
@@ -612,14 +616,42 @@ function renderRT(rt){
   }).join("") || `<tr><td colspan="6" class="empty">Viajes está sacando solo itinerarios Avianca+Avianca.</td></tr>`;
   const rets = rt.flights_return||[];
   const retBody = document.getElementById("rt-returns");
+  const retMiles = {};
+  (lm.return_24oct_after_av78_light||[]).forEach(x=>{ if(x.flight) retMiles[x.flight]=x; });
+  const cash78 = (all.find(f=>f.flight==="AV78")||{}).cash_cop;
+  const cash92 = (all.find(f=>f.flight==="AV92")||{}).cash_cop;
+  function flightCode(code){
+    const m = String(code||"").toUpperCase().match(/AV(\d+)/);
+    return m ? "AV"+m[1].padStart(3,"0") : (code||"");
+  }
+  function amp(hhmm){
+    if(!hhmm || !/^\d{2}:\d{2}$/.test(hhmm)) return hhmm||"";
+    const [h,mi] = hhmm.split(":").map(Number);
+    const ap = h>=12 ? "pm" : "am";
+    const h12 = ((h+11)%12)+1;
+    return hhmm+" ("+h12+":"+String(mi).padStart(2,"0")+" "+ap+")";
+  }
   if(retBody){
-    retBody.innerHTML = rets.length ? rets.map(r=>`<tr>
-      <td class="gold">${r.flight||""}</td>
-      <td>${r.depart||""}</td>
-      <td>${r.arrive||""}</td>
-      <td>${r.direct||r.stops===0? "directo": stopsLabel(r)}</td>
-      <td>${r.aircraft||""}</td>
-    </tr>`).join("") : `<tr><td colspan="5" class="empty">Sin regresos AV.</td></tr>`;
+    retBody.innerHTML = rets.length ? rets.map(r=>{
+      const code = flightCode(r.flight);
+      const is79 = /AV0*79/.test(code);
+      const rm = retMiles[r.flight] || retMiles[code] || {};
+      const legM = rm.light!=null ? rm.light : 8770;
+      const seats = rm.seats_left!=null ? rm.seats_left+" asientos Light" : (is79 ? "3 asientos Light" : "");
+      const combo78 = lm.av78_av93_light;
+      const combo92 = lm.av92_av93_light;
+      return `<tr class="${is79?"now":""}">
+        <td class="gold"><b>${code}</b>${is79?' <span class="tag gold">propio</span>':""}</td>
+        <td>${amp(r.depart)}</td>
+        <td>${r.arrive||""}</td>
+        <td class="cash">${cop(cash78)}</td>
+        <td class="cash">${cop(cash92)}</td>
+        <td class="gold">${num(legM)}</td>
+        <td class="gold">${num(combo78)} + ${cop(taxRT)}</td>
+        <td class="gold">${num(combo92)} + ${cop(taxRT)}</td>
+        <td>${(r.direct||r.stops===0)?"directo 1h55":stopsLabel(r)}${r.aircraft? " · "+r.aircraft:""}${seats? " · "+seats:""}</td>
+      </tr>`;
+    }).join("") : `<tr><td colspan="9" class="empty">Sin regresos AV.</td></tr>`;
   }
   const pairs = rt.flights||[];
   const pairBody = document.getElementById("rt-pairs");
@@ -666,7 +698,7 @@ function renderRT(rt){
   }).join("") : `<tr><td colspan="7" class="empty">Primera toma RT.</td></tr>`;
   const av92 = all.find(f=>f.flight==="AV92");
   document.getElementById("rt-note").innerHTML =
-    `<strong>Solo Avianca ida y vuelta.</strong> Cash más barato ${cop(best)} (${bestLab}). AV92 cash RT ${cop(av92 && av92.cash_cop)}. Regresos AV93 11:35 y AV79 18:15, mismo cash. Millas más baratas ${cheapM? num(cheapM)+" Light":"—" } + ${cop(taxRT)} tasas (AV78+AV93). AV92+AV93 ${lm.av92_av93_light? num(lm.av92_av93_light)+" Light":"—"}. Classic AV78 ${num(lm.av78_classic_rt)} / AV92 ${num(lm.av92_classic_rt)}. Flex AV78 ${num(lm.av78_flex_rt)} / AV92 ${num(lm.av92_flex_rt)}.`;
+    `<strong>Solo Avianca ida y vuelta.</strong> Cash más barato ${cop(best)} (${bestLab}). AV92 cash RT ${cop(av92 && av92.cash_cop)}. Regreso AV079 CUR 18:15 (6:15 pm)–BOG 19:10 y AV93 11:35–12:30, mismo cash. AV079 Light 8.770, 3 asientos la última vez. Millas más baratas ${cheapM? num(cheapM)+" Light":"—" } + ${cop(taxRT)} tasas (AV78+AV93). AV92+AV93 ${lm.av92_av93_light? num(lm.av92_av93_light)+" Light":"—"}. Classic AV78 ${num(lm.av78_classic_rt)} / AV92 ${num(lm.av92_classic_rt)}. Flex AV78 ${num(lm.av78_flex_rt)} / AV92 ${num(lm.av92_flex_rt)}.`;
 }
 function tickClock(){
   document.getElementById("clock").textContent = new Date().toLocaleTimeString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",second:"2-digit"});
