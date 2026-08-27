@@ -193,7 +193,7 @@ svg.sky{width:100%;height:clamp(64px,14vw,110px);overflow:visible}
   <div class="duo">
     <section class="card" id="card-cash">
       <div class="k">efectivo · COP</div>
-      <div class="price" id="cash">$0</div>
+      <div class="price" id="cash">$2.206.810</div>
       <p class="sub" id="cash-src">Google Flights, solo ida</p>
       <div class="chips" id="cash-chips"></div>
       <div class="sema">
@@ -205,7 +205,7 @@ svg.sky{width:100%;height:clamp(64px,14vw,110px);overflow:visible}
     </section>
     <section class="card miles" id="card-miles">
       <div class="k">LifeMiles · Light</div>
-      <div class="price gold" id="miles">0</div>
+      <div class="price gold" id="miles">40.850 millas</div>
       <p class="sub" id="miles-sub">+ impuestos</p>
       <div class="chips" id="miles-chips"></div>
     </section>
@@ -241,11 +241,22 @@ const gio = s => String(s||"").replace(/Aleja/gi,"GIO");
 let lastSig = "", lastCash = null, lastMiles = null;
 
 function tween(el, to, fmt, ms=900){
-  const from = Number(el.dataset.v||0); const t0 = performance.now();
+  to = Number(to)||0;
+  if(el.dataset.v === undefined){
+    el.dataset.v = String(to);
+    el.textContent = fmt(to);
+    return;
+  }
+  const from = Number(el.dataset.v);
+  if(from === to){ el.textContent = fmt(to); return; }
+  const gen = Number(el.dataset.g||0)+1; el.dataset.g = String(gen);
+  const t0 = performance.now();
   const tick = now => {
+    if(Number(el.dataset.g)!==gen) return;
     const p = Math.min(1,(now-t0)/ms); const e = 1-Math.pow(1-p,3);
-    const v = from + (to-from)*e; el.dataset.v = v; el.textContent = fmt(Math.round(v));
+    const v = from + (to-from)*e; el.dataset.v = String(v); el.textContent = fmt(Math.round(v));
     if(p<1) requestAnimationFrame(tick);
+    else { el.dataset.v = String(to); el.textContent = fmt(to); }
   };
   requestAnimationFrame(tick);
 }
