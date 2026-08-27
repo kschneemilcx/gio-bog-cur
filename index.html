@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>GIO · BOG → CUR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Outfit:wght@380;500;650;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#f7f3ea; --muted:#b7c0d4; --dim:rgba(247,243,234,.55);
+  --red:#ff2d4a; --go:#3ee0a0; --wait:#ffb020; --gold:#e8c37a;
+  --glass:rgba(8,12,22,.55); --line:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;color:var(--ink);font-family:Outfit,system-ui,sans-serif;background:#05070e}
+body{overflow-x:hidden}
+.grain, .spot{pointer-events:none;position:fixed;inset:0;z-index:8}
+.grain{opacity:.11;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>")}
+.spot{background:radial-gradient(500px 380px at var(--mx,70%) var(--my,20%), rgba(232,195,122,.12), transparent 55%)}
+
+.hero{
+  position:relative; min-height:58vh; isolation:isolate;
+  background:#05070e url('gio-bog-cur-hero.jpg') center 42%/cover no-repeat;
+}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:
+    linear-gradient(180deg, rgba(5,7,14,.15) 0%, rgba(5,7,14,.2) 38%, rgba(5,7,14,.92) 88%, #05070e 100%),
+    radial-gradient(800px 280px at 18% 70%, rgba(232,25,50,.18), transparent 60%);
+}
+.nav{
+  position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;
+  padding:18px 22px 0; gap:12px; flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{
+  width:42px;height:42px;border-radius:14px;
+  background:linear-gradient(160deg,#ff2d4a,#9b1024);
+  display:grid;place-items:center;font-weight:800;letter-spacing:.04em;font-size:13px;
+  box-shadow:0 10px 30px rgba(255,45,74,.35);
+}
+.brand b{display:block;font-size:13px;letter-spacing:.28em;text-transform:uppercase}
+.brand span{display:block;font-size:12px;color:var(--muted);letter-spacing:.08em}
+.live{
+  display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);
+  border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+  background:rgba(5,7,14,.45);backdrop-filter:blur(10px);
+}
+.pulse{width:8px;height:8px;border-radius:99px;background:var(--go);box-shadow:0 0 0 0 rgba(62,224,160,.7);animation:p 1.6s infinite}
+@keyframes p{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+.stage{position:relative;z-index:3;padding:28px 22px 8px;max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 8px;letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--gold)}
+h1{font-family:Fraunces,serif;font-size:clamp(42px,8vw,84px);margin:0;line-height:.9;letter-spacing:-.03em}
+.route{display:flex;align-items:center;gap:14px}
+.plane-wrap{flex:1;min-width:120px;height:36px;position:relative}
+svg.arc{width:100%;height:36px;overflow:visible}
+.plane{
+  offset-path:path("M 8 28 C 80 4, 160 4, 232 28");
+  animation:fly 4.8s cubic-bezier(.45,.05,.55,.95) infinite;
+  font-size:16px; position:absolute; top:0; left:0;
+}
+@keyframes fly{0%{offset-distance:0%; opacity:.2}8%{opacity:1}92%{opacity:1}100%{offset-distance:100%; opacity:.15}}
+.meta{margin:10px 0 0;color:var(--muted);font-size:15px}
+
+.sheet{position:relative;z-index:4;max-width:1180px;margin:-42px auto 0;padding:0 16px 80px}
+.duo{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+@media (max-width:860px){.duo{grid-template-columns:1fr}.hero{min-height:48vh}}
+.card{
+  position:relative; overflow:hidden;
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  border:1px solid var(--line); border-radius:26px; padding:22px 22px 20px;
+  backdrop-filter:blur(18px); box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+.card::before{
+  content:""; position:absolute; inset:-40% auto auto -20%; width:220px; height:220px;
+  background:radial-gradient(circle, rgba(255,45,74,.22), transparent 70%); pointer-events:none;
+}
+.miles.card::before{background:radial-gradient(circle, rgba(232,195,122,.22), transparent 70%)}
+.k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.price{font-family:Fraunces,serif;font-size:clamp(40px,7vw,68px);margin:6px 0 2px;letter-spacing:-.04em;line-height:1}
+.price.gold{color:var(--gold); font-size:clamp(36px,6.2vw,58px)}
+.sub{color:var(--muted);font-size:14px;line-height:1.5;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{border-radius:999px;padding:6px 11px;font-size:12.5px;border:1px solid var(--line);background:rgba(0,0,0,.2)}
+.chip.up{color:#ff8a96;background:rgba(255,45,74,.12)}
+.chip.down{color:var(--go);background:rgba(62,224,160,.1)}
+.chip.gold{color:var(--gold);border-color:rgba(232,195,122,.35)}
+
+.sema{margin-top:14px}
+.state{
+  font-family:Fraunces,serif; font-size:clamp(28px,5vw,40px); margin:6px 0 10px;
+  background:linear-gradient(90deg,#ffb020,#ff2d4a); -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:shimmer 2.8s linear infinite; background-size:200% 100%;
+}
+.state.go{background-image:linear-gradient(90deg,#3ee0a0,#e8c37a)}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
+.bar{height:12px;border-radius:99px;background:#161b2a;overflow:hidden;position:relative}
+.bar>i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--go),var(--wait),var(--red));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.pin{position:absolute;top:-4px;width:3px;height:20px;background:#fff;border-radius:2px;box-shadow:0 0 12px #fff;transition:left 1.2s}
+.marks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}
+
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:14px 0}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:520px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{padding:14px 14px 12px}
+.kpi .v{font-size:20px;font-weight:650;margin-top:6px}
+
+.grid{display:grid;grid-template-columns:1.4fr .8fr;gap:12px}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.hist{height:220px}
+.note{font-size:14px;color:var(--muted);line-height:1.55;margin:0}
+.note strong{color:var(--ink)}
+.feed{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+.feed li{display:grid;grid-template-columns:88px 1fr;gap:10px;font-size:13px;color:var(--muted)}
+.feed b{color:var(--ink);display:block}
+.foot{margin-top:18px;font-size:12px;color:var(--dim)}
+.hours{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
+.hcell{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:8px 4px;text-align:center;font-size:10px;color:var(--muted)}
+.empty{opacity:.7;font-size:13px}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="spot" id="spot"></div>
+<header class="hero">
+  <div class="nav">
+    <div class="brand">
+      <div class="mark">GIO</div>
+      <div><b>Radar de vuelo</b><span>solo ida · cash + millas</span></div>
+    </div>
+    <div class="live"><i class="pulse"></i> VIVO · <span id="clock">--:--</span> COT</div>
+  </div>
+  <div class="stage">
+    <p class="eyebrow">Avianca AV92 · 19 oct 2026</p>
+    <h1 class="route">
+      BOG
+      <span class="plane-wrap" aria-hidden="true">
+        <svg class="arc" viewBox="0 0 240 36">
+          <path d="M8 28 C80 4, 160 4, 232 28" fill="none" stroke="rgba(232,195,122,.55)" stroke-width="1.4" stroke-dasharray="4 6">
+            <animate attributeName="stroke-dashoffset" from="0" to="-40" dur="2s" repeatCount="indefinite"/>
+          </path>
+        </svg>
+        <span class="plane">✈</span>
+      </span>
+      CUR
+    </h1>
+    <p class="meta" id="meta">07:25 → 10:20 · directo 1h55</p>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="duo">
+    <section class="card">
+      <div class="k">efectivo · COP</div>
+      <div class="price" id="cash">$0</div>
+      <p class="sub" id="cash-src">Google Flights, solo ida</p>
+      <div class="chips" id="cash-chips"></div>
+      <div class="sema">
+        <div class="k">semáforo</div>
+        <div class="state" id="state">—</div>
+        <div class="bar"><i id="fill"></i><b class="pin" id="pin"></b></div>
+        <div class="marks"><span id="m-lo">piso GIO</span><span id="m-hi">techo</span></div>
+      </div>
+    </section>
+    <section class="card miles">
+      <div class="k">LifeMiles · Light</div>
+      <div class="price gold" id="miles">0</div>
+      <p class="sub" id="miles-sub">+ impuestos</p>
+      <div class="chips" id="miles-chips"></div>
+    </section>
+  </div>
+
+  <div class="kpis">
+    <div class="card kpi"><div class="k">piso GIO</div><div class="v" id="k-floor">—</div></div>
+    <div class="card kpi"><div class="k">techo</div><div class="v" id="k-ceil">—</div></div>
+    <div class="card kpi"><div class="k">vs piso</div><div class="v" id="k-delta">—</div></div>
+    <div class="card kpi"><div class="k">impuestos</div><div class="v" id="k-tax">—</div></div>
+    <div class="card kpi"><div class="k">14:00 cash</div><div class="v" id="k-1400">—</div></div>
+    <div class="card kpi"><div class="k">refresh</div><div class="v" id="k-ago" style="font-size:15px">—</div></div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <div class="k">historia cash</div>
+      <svg class="hist" id="chart" viewBox="0 0 640 220" preserveAspectRatio="none"></svg>
+      <ul class="feed" id="feed"></ul>
+    </section>
+    <section class="card">
+      <div class="k">lectura</div>
+      <p class="note" id="insight"></p>
+      <div class="k" style="margin-top:16px">por hora (cuando haya data)</div>
+      <div class="hours" id="hours"></div>
+    </section>
+  </div>
+  <p class="foot" id="foot">Radar GIO · BOG → CUR · no inventa precios · chequeo cada hora :22 COT</p>
+</main>
+
+<script>
+const SEED = {"route":"BOG-CUR","airline":"Avianca","date":"2026-10-19","depart":"07:25","flight_number":"AV92","currency":"COP","cash":{"baseline":914000,"lowest":914000,"highest":2206810,"latest":2206810,"source":"Google Flights one-way","as_of":"2026-08-27T16:15:01.408111+00:00","user_yesterday_cop":914000},"lifemiles":{"baseline":40850,"lowest":40850,"highest":40850,"latest":40850,"taxes_cop":305691,"fare":"Light","list_before_elite":43000,"elite_discount_pct":5,"classic":44020,"flex":47180,"lifemiles_plus":38700,"source":"lifemiles.com Colombia, logged in","as_of":"2026-08-27T11:29:36.287840-05:00"},"history":[{"ts":"2026-08-26T12:00:00-05:00","weekday":"miércoles","hour_cot":12,"cash_cop":914000,"lifemiles":null,"source":"GIO","detail":"Precio que GIO vio ayer (26 ago) en el mismo vuelo 7:25."},{"ts":"2026-08-27T16:15:01.408111+00:00","cash_cop":2206810,"lifemiles":null,"source":"Google Flights one-way (solo ida)","detail":"AV BOG 07:25-CUR 10:20 directo 1h55. Precio 2.206.810 COP.","weekday":"jueves","hour_cot":11},{"ts":"2026-08-27T11:29:36.287840-05:00","weekday":"jueves","hour_cot":11,"cash_cop":2206810,"lifemiles":40850,"taxes_cop":305691,"fare":"Light","flight_number":"AV92","source":"LifeMiles (sesión GIO, región Colombia)","detail":"AV92 07:25-10:20 Light 40850 + 305691 COP (Elite 5%). Classic 44020, Flex 47180. AV78 14:00 desde 12290 (contexto)."}],"arrive":"10:20","duration":"1h55","direct":true,"notes":{"avianca_1400_oneway_cop":900560,"google_route_insight":"precios de la ruta en general bajos; el 7:25 está caro vs el directo de las 14:00"},"stats":{"by_weekday":{},"by_hour":{},"note":"Averages filled as observations arrive. Weekday/hour of BUY, same flight."},"check_cadence":"hourly 24/7 at :22 America/Bogota"};
+
+const cop = n => n==null ? "—" : new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}).format(n);
+const num = n => n==null ? "—" : new Intl.NumberFormat("es-CO").format(n);
+const gio = s => String(s||"").replace(/Aleja/gi,"GIO");
+
+function tween(el, to, fmt, ms=900){
+  const from = Number(el.dataset.v||0); const t0 = performance.now();
+  const tick = now => {
+    const p = Math.min(1,(now-t0)/ms); const e = 1-Math.pow(1-p,3);
+    const v = from + (to-from)*e; el.dataset.v = v; el.textContent = fmt(Math.round(v));
+    if(p<1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function decision(d){
+  const c = d.cash||{}; const latest=c.latest, hi=c.highest, lo=c.lowest||c.baseline;
+  if(latest==null) return {lab:"SIN DATO", cls:""};
+  if(latest >= hi*0.98 || latest > 1.4*(c.baseline||lo)) return {lab:"ESPERAR", cls:""};
+  if(latest <= (c.baseline||lo)*1.05) return {lab:"COMPRAR", cls:"go"};
+  return {lab:"VIGILAR", cls:""};
+}
+
+function drawChart(hist){
+  const svg = document.getElementById("chart");
+  const pts = (hist||[]).filter(h=>h.cash_cop);
+  if(!pts.length){ svg.innerHTML=""; return; }
+  const w=640,h=220,p=24;
+  const ys = pts.map(x=>x.cash_cop);
+  const min=Math.min(...ys)*0.96, max=Math.max(...ys)*1.04;
+  const x = i => p + i*(w-2*p)/Math.max(1,pts.length-1);
+  const y = v => h-p - ((v-min)/(max-min||1))*(h-2*p);
+  let d=""; pts.forEach((pt,i)=>{ d += (i?" L":"M")+x(i)+" "+y(pt.cash_cop); });
+  const area = d + ` L ${x(pts.length-1)} ${h-p} L ${x(0)} ${h-p} Z`;
+  svg.innerHTML = `
+    <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff2d4a" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ff2d4a" stop-opacity="0"/>
+    </linearGradient></defs>
+    <path d="${area}" fill="url(#g)"/>
+    <path d="${d}" fill="none" stroke="#ff2d4a" stroke-width="2.6" stroke-linejoin="round"/>
+    ${pts.map((pt,i)=>`<circle cx="${x(i)}" cy="${y(pt.cash_cop)}" r="4.2" fill="${pt.lifemiles?'#e8c37a':'#fff'}"/>`).join("")}
+  `;
+}
+
+function render(d){
+  const c=d.cash||{}, m=d.lifemiles||{};
+  document.getElementById("meta").textContent =
+    `${d.date||"19 oct 2026"} · ${d.depart||"07:25"} → ${d.arrive||"10:20"} · ${d.direct?"directo":"con escala"} ${d.duration||""} · ${d.flight_number||"AV92"}`;
+  tween(document.getElementById("cash"), c.latest||0, cop);
+  document.getElementById("cash-src").textContent = gio(c.source||"");
+  const chips = document.getElementById("cash-chips");
+  const vs = (c.latest||0) - (c.baseline||0);
+  const pct = c.baseline ? Math.round(vs/c.baseline*100) : 0;
+  chips.innerHTML = `
+    <span class="chip ${vs>0?"up":vs<0?"down":""}">${vs>=0?"+":""}${cop(vs)} vs piso GIO</span>
+    <span class="chip ${pct>0?"up":""}">${pct>0?"+":""}${pct}%</span>
+    <span class="chip">mín ${cop(c.lowest)}</span>
+    <span class="chip">máx ${cop(c.highest)}</span>`;
+  const dec = decision(d);
+  const st = document.getElementById("state"); st.textContent = dec.lab; st.className = "state "+dec.cls;
+  const lo=c.lowest||c.baseline||0, hi=c.highest||lo||1;
+  const pctBar = Math.max(2, Math.min(100, ((c.latest-lo)/(hi-lo||1))*100));
+  document.getElementById("fill").style.width = pctBar+"%";
+  document.getElementById("pin").style.left = pctBar+"%";
+  document.getElementById("m-lo").textContent = "piso GIO "+cop(lo);
+  document.getElementById("m-hi").textContent = "techo "+cop(hi);
+
+  tween(document.getElementById("miles"), m.latest||0, v => num(v)+" millas");
+  document.getElementById("miles-sub").textContent =
+    `tarifa ${m.fare||"Light"} · + ${cop(m.taxes_cop)} impuestos · Elite ${m.elite_discount_pct||0}%`;
+  document.getElementById("miles-chips").innerHTML = `
+    <span class="chip gold">lista ${num(m.list_before_elite)}</span>
+    <span class="chip gold">Plus ${num(m.lifemiles_plus)}</span>
+    <span class="chip">Classic ${num(m.classic)}</span>
+    <span class="chip">Flex ${num(m.flex)}</span>`;
+
+  document.getElementById("k-floor").textContent = cop(c.baseline);
+  document.getElementById("k-ceil").textContent = cop(c.highest);
+  document.getElementById("k-delta").textContent = (vs>=0?"+":"")+cop(vs);
+  document.getElementById("k-tax").textContent = cop(m.taxes_cop);
+  document.getElementById("k-1400").textContent = cop(d.notes && d.notes.avianca_1400_oneway_cop);
+  const asof = c.as_of || m.as_of;
+  document.getElementById("k-ago").textContent = asof ? new Date(asof).toLocaleString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"short"}) : "—";
+
+  drawChart(d.history);
+  document.getElementById("feed").innerHTML = (d.history||[]).slice().reverse().map(h=>`
+    <li><span>${gio(h.weekday||"")} ${h.hour_cot??""}h</span>
+    <span><b>${cop(h.cash_cop)}${h.lifemiles? " · "+num(h.lifemiles)+" millas":""}</b>${gio(h.detail||h.source||"")}</span></li>`).join("");
+
+  const insight = document.getElementById("insight");
+  insight.innerHTML = `<strong>${dec.lab}.</strong> El 7:25 está en el techo (${cop(c.latest)}).
+    El piso que GIO vio el 26 ago es ${cop(c.baseline)}.
+    El directo de las 14:00 anda en ${cop(d.notes && d.notes.avianca_1400_oneway_cop)} cash — más barato, otro vuelo.
+    Media de la ruta ~$925.000; octubre es el mes más caro. Millas Light ${num(m.latest)} + ${cop(m.taxes_cop)}.`;
+
+  const hours = document.getElementById("hours");
+  const by = (d.stats && d.stats.by_hour) || {};
+  if(!Object.keys(by).length){
+    hours.innerHTML = `<div class="hcell empty" style="grid-column:1/-1">Aún no hay promedio por hora. Se llena solo con cada chequeo.</div>`;
+  } else {
+    hours.innerHTML = Object.keys(by).sort((a,b)=>a-b).map(h=>`<div class="hcell">${h}h<span class="n">${cop(by[h])}</span></div>`).join("");
+  }
+}
+
+function tickClock(){
+  document.getElementById("clock").textContent = new Date().toLocaleTimeString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",second:"2-digit"});
+}
+setInterval(tickClock, 1000); tickClock();
+
+async function pull(){
+  try{
+    const r = await fetch("./bog-cur-2026-10-19.json?t="+Date.now(), {cache:"no-store"});
+    if(!r.ok) throw 0;
+    const d = await r.json();
+    (d.history||[]).forEach(h=>{ h.source=gio(h.source); h.detail=gio(h.detail); });
+    render(d);
+  }catch(e){ render(SEED); }
+}
+pull(); setInterval(pull, 8000);
+
+document.addEventListener("pointermove", e=>{
+  document.getElementById("spot").style.setProperty("--mx", e.clientX+"px");
+  document.getElementById("spot").style.setProperty("--my", e.clientY+"px");
+});
+</script>
+</body>
+</html>
