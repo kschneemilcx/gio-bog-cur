@@ -269,8 +269,8 @@
     "note_vs_oneway": "RT AV78+vuelta 1562660 vs sueltos 900560+725325=1625885 (RT ahorra 63225). RT AV92+vuelta 2764640 vs sueltos 2206810+725325=2932135 (RT ahorra 167495)."
   },
   "oneway": {
-    "as_of": "2026-08-27T14:03:53.684303-05:00",
-    "source": "Google Flights one-way, Avianca by time",
+    "as_of": "2026-08-27T14:10:22.567885-05:00",
+    "source": "Google Flights one-way cash + LifeMiles one-way logged-in",
     "currency": "COP",
     "outbound_19oct": [
       {
@@ -296,16 +296,21 @@
         "depart": "11:35",
         "arrive": "12:30",
         "cash_cop": 725325,
-        "light_millas": null,
-        "note": "millas one-way pendiente; en RT el tramo Light es 8770"
+        "light_millas": 8770,
+        "classic": 12010,
+        "flex": 12960,
+        "taxes_cop": 209191
       },
       {
         "flight": "AV79",
         "depart": "18:15",
         "arrive": "19:10",
         "cash_cop": 725325,
-        "light_millas": null,
-        "note": "millas one-way pendiente; en RT el tramo Light es 8770"
+        "light_millas": 8770,
+        "classic": 12010,
+        "flex": 12960,
+        "taxes_cop": 209191,
+        "seats_left_light": 2
       }
     ]
   }
