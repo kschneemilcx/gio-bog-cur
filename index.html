@@ -224,7 +224,7 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
   <div id="panel-ow">
   <div class="duo">
     <section class="card" id="card-cash">
-      <div class="k">efectivo · COP</div>
+      <div class="k">sin millas · COP</div>
       <div class="price" id="cash">$2.206.810</div>
       <p class="sub" id="cash-src">Google Flights, solo ida</p>
       <div class="chips" id="cash-chips"></div>
@@ -236,7 +236,7 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
       </div>
     </section>
     <section class="card miles" id="card-miles">
-      <div class="k">LifeMiles · Light</div>
+      <div class="k">con millas · Light + tasas</div>
       <div class="price gold" id="miles">40.850 millas</div>
       <p class="sub" id="miles-sub">+ impuestos</p>
       <div class="chips" id="miles-chips"></div>
@@ -284,20 +284,20 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
   <div id="panel-rt">
     <div class="duo">
       <section class="card rt-best" id="card-rt">
-        <div class="k">ida + vuelta · Avianca más barato</div>
+        <div class="k">ida + vuelta · sin millas · más barato AV</div>
         <div class="price" id="rt-best">—</div>
         <p class="sub" id="rt-best-lab">19 oct → 24 oct · 1 adulto</p>
         <div class="chips" id="rt-chips"></div>
       </section>
       <section class="card miles">
-        <div class="k">LifeMiles · roundtrip Avianca</div>
+        <div class="k">ida + vuelta · con millas · más barato AV</div>
         <div class="price gold" id="rt-miles">pendiente</div>
         <p class="sub" id="rt-miles-sub">Viajes está sacando millas RT. No se inventan.</p>
         <div class="chips" id="rt-miles-chips"></div>
       </section>
     </div>
     <section class="card hist-card" style="margin-top:14px">
-      <div class="k">Avianca + Avianca · paquete ida+vuelta 19–24 oct</div>
+      <div class="k">ida Avianca · las dos formas de pagar</div>
       <div class="table-wrap">
         <table class="hist-table flights">
           <thead>
@@ -305,8 +305,8 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
               <th>sale</th>
               <th>vuelo</th>
               <th>vuelta</th>
-              <th>paquete COP</th>
-              <th>millas Light</th>
+              <th>sin millas</th>
+              <th>con millas Light</th>
               <th>tasas</th>
             </tr>
           </thead>
@@ -332,15 +332,15 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
       </div>
     </section>
     <section class="card hist-card">
-      <div class="k">combinaciones ida + vuelta · mismo cash por ida</div>
+      <div class="k">cada combo · sin millas y con millas</div>
       <div class="table-wrap">
         <table class="hist-table flights">
           <thead>
             <tr>
               <th>ida</th>
               <th>vuelta</th>
-              <th>cash COP</th>
-              <th>Light</th>
+              <th>sin millas</th>
+              <th>con millas Light</th>
               <th>tasas</th>
             </tr>
           </thead>
@@ -494,7 +494,7 @@ function render(d, changed){
   document.getElementById("meta").textContent =
     `${d.date||"19 oct 2026"} · ${d.depart||"07:25"} → ${d.arrive||"10:20"} · ${d.direct?"directo":"con escala"} ${d.duration||""} · ${d.flight_number||"AV92"}`;
   tween(document.getElementById("cash"), c.latest||0, cop);
-  document.getElementById("cash-src").textContent = gio(c.source||"");
+  document.getElementById("cash-src").textContent = "pagas todo en COP · "+gio(c.source||"");
   const vs = (c.latest||0) - (c.baseline||0);
   const pct = c.baseline ? Math.round(vs/c.baseline*100) : 0;
   document.getElementById("cash-chips").innerHTML = `
@@ -512,7 +512,7 @@ function render(d, changed){
   document.getElementById("m-hi").textContent = "techo "+cop(hi);
   tween(document.getElementById("miles"), m.latest||0, v => num(v)+" millas");
   document.getElementById("miles-sub").textContent =
-    `tarifa ${m.fare||"Light"} · + ${cop(m.taxes_cop)} impuestos · Elite ${m.elite_discount_pct||0}%`;
+    `pagas ${num(m.latest)} millas + ${cop(m.taxes_cop)} tasas · ${m.fare||"Light"} · Elite ${m.elite_discount_pct||0}%`;
   document.getElementById("miles-chips").innerHTML = `
     <span class="chip gold">lista ${num(m.list_before_elite)}</span>
     <span class="chip gold">Plus ${num(m.lifemiles_plus)}</span>
