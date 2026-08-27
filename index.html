@@ -284,7 +284,7 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
   <div id="panel-rt">
     <div class="duo">
       <section class="card rt-best" id="card-rt">
-        <div class="k">ida + vuelta · paquete más barato</div>
+        <div class="k">ida + vuelta · Avianca más barato</div>
         <div class="price" id="rt-best">—</div>
         <p class="sub" id="rt-best-lab">19 oct → 24 oct · 1 adulto</p>
         <div class="chips" id="rt-chips"></div>
@@ -296,7 +296,7 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
       </section>
     </div>
     <section class="card hist-card" style="margin-top:14px">
-      <div class="k">todos los vuelos · precio de paquete ida+vuelta (pierna de ida)</div>
+      <div class="k">Avianca + Avianca · paquete ida+vuelta 19–24 oct</div>
       <div class="table-wrap">
         <table class="hist-table flights">
           <thead>
@@ -320,7 +320,7 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
           <thead>
             <tr>
               <th>cuándo</th>
-              <th>más barato</th>
+              <th>más barato AV</th>
               <th>AV92 RT</th>
               <th>AV78 RT</th>
               <th>fuente</th>
@@ -488,19 +488,29 @@ function stopsLabel(f){
   const n = f.stops||1;
   return n+" escala"+(n>1?"s":"")+(f.via? " · "+f.via:"");
 }
+function isAviancaBoth(f){
+  const a = String(f.airline||"").toLowerCase().replace(/\s+/g,"");
+  if(!a) return false;
+  if(a.includes("copa") || a.includes("cm") || a.includes("+")) return false;
+  return a==="avianca" || a.startsWith("avianca");
+}
 function renderRT(rt){
   if(!rt){
     document.getElementById("rt-best").textContent = "—";
-    document.getElementById("rt-flights").innerHTML = `<tr><td colspan="6" class="empty">Aún no hay roundtrip.</td></tr>`;
+    document.getElementById("rt-flights").innerHTML = `<tr><td colspan="6" class="empty">Aún no hay roundtrip Avianca.</td></tr>`;
     return;
   }
-  const best = rt.cheapest_cash_cop || rt.latest_cheapest_cash_cop;
+  const all = (rt.flights_outbound||[]).filter(isAviancaBoth).slice().sort((a,b)=>(a.cash_cop||0)-(b.cash_cop||0));
+  const bestF = all[0];
+  const best = bestF ? bestF.cash_cop : null;
+  const bestLab = bestF ? `${bestF.airline||"Avianca"} ${bestF.flight||""} ${bestF.depart||""}`.trim() : "Avianca ida+vuelta";
   document.getElementById("rt-best").textContent = cop(best);
   document.getElementById("rt-best-lab").textContent =
-    `${rt.cheapest_label||""} · ${rt.outbound_date||"19 oct"} → ${rt.return_date||"24 oct"} · 1 adulto`;
+    `${bestLab} · ${rt.outbound_date||"19 oct"} → ${rt.return_date||"24 oct"} · solo Avianca · 1 adulto`;
   const asof = rt.as_of ? new Date(rt.as_of).toLocaleString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"short"}) : "";
   document.getElementById("rt-chips").innerHTML = `
-    <span class="chip down">más barato ${cop(best)}</span>
+    <span class="chip down">más barato AV ${cop(best)}</span>
+    <span class="chip">solo Avianca ida y vuelta</span>
     <span class="chip">${gio(rt.source||"Google Flights RT")}</span>
     <span class="chip">${asof}</span>`;
   const lm = rt.lifemiles;
@@ -511,7 +521,7 @@ function renderRT(rt){
     document.getElementById("rt-miles").textContent = "pendiente";
     document.getElementById("rt-miles-sub").textContent = "Viajes está sacando millas RT. No se inventan.";
   }
-  const flights = (rt.flights_outbound||[]).slice().sort((a,b)=>(a.cash_cop||0)-(b.cash_cop||0));
+  const flights = all;
   document.getElementById("rt-flights").innerHTML = flights.map((f,i)=>{
     const isAV92 = f.flight==="AV92" || (f.depart==="07:25" && f.airline==="Avianca" && f.direct);
     const isBest = i===0 || f.cash_cop===best;
@@ -525,13 +535,15 @@ function renderRT(rt){
       <td>${f.duration||""}</td>
       <td class="cash ${cls}">${cop(f.cash_cop)}</td>
     </tr>`;
-  }).join("") || `<tr><td colspan="6" class="empty">Sin vuelos RT.</td></tr>`;
+  }).join("") || `<tr><td colspan="6" class="empty">Viajes está sacando solo itinerarios Avianca+Avianca. Copa y mixtos no se muestran.</td></tr>`;
   const hist = (rt.history||[]).slice().reverse();
   document.getElementById("rt-hist").innerHTML = hist.length ? hist.map(h=>{
     const w = whenCOT(h);
+    const avCheap = [h.av92_rt_cash_cop, h.av78_rt_cash_cop].filter(v=>v!=null);
+    const cheapAV = avCheap.length ? Math.min(...avCheap) : null;
     return `<tr>
       <td class="when"><b>${w.fecha}</b>${w.hora}</td>
-      <td class="cash">${cop(h.cheapest_cash_cop)}</td>
+      <td class="cash">${cop(cheapAV)}</td>
       <td>${cop(h.av92_rt_cash_cop)}</td>
       <td>${cop(h.av78_rt_cash_cop)}</td>
       <td>${gio(h.source||"")}</td>
@@ -539,7 +551,7 @@ function renderRT(rt){
   }).join("") : `<tr><td colspan="5" class="empty">Primera toma RT.</td></tr>`;
   const av92 = (rt.flights_outbound||[]).find(f=>f.flight==="AV92");
   document.getElementById("rt-note").innerHTML =
-    `<strong>Roundtrip aparte.</strong> Más barato ${cop(best)} (${rt.cheapest_label||""}). AV92 07:25 ida+vuelta ${cop(av92 && av92.cash_cop)}. Millas RT ${lm && (lm.latest||lm.light) ? num(lm.latest||lm.light) : "aún no"}.`;
+    `<strong>Solo Avianca ida y vuelta.</strong> Más barato AV ${cop(best)} (${bestLab}). AV92 07:25 RT ${cop(av92 && av92.cash_cop)}. Copa y mixtos fuera. Millas RT ${lm && (lm.latest||lm.light) ? num(lm.latest||lm.light) : "aún no"}.`;
 }
 function tickClock(){
   document.getElementById("clock").textContent = new Date().toLocaleTimeString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",second:"2-digit"});
