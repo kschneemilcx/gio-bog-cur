@@ -427,5 +427,55 @@
         "seats_left_light": 2
       }
     ]
+  },
+  "kayak": {
+    "as_of": "2026-08-27T16:30:00-05:00",
+    "source": "Kayak.com.co, 1 adulto Light",
+    "note": "Identificado por horarios. Kayak no pone número de vuelo en la lista. Solo cash, no millas.",
+    "currency": "COP",
+    "oneway": {
+      "outbound_19oct": [
+        {
+          "flight": "AV92",
+          "depart": "07:25",
+          "arrive": "10:20",
+          "direct": true,
+          "cash_cop": 2138366,
+          "vs_google_cop": -68444
+        },
+        {
+          "flight": "AV78",
+          "depart": "14:00",
+          "arrive": "17:00",
+          "direct": true,
+          "cash_cop": 869191,
+          "vs_google_cop": -31369
+        }
+      ],
+      "other": [
+        {
+          "airline": "Copa",
+          "stops": 1,
+          "cash_cop": 848172,
+          "note": "no Avianca"
+        }
+      ]
+    },
+    "roundtrip": {
+      "flights": [
+        {
+          "outbound": "AV92 07:25 + AV93 11:35",
+          "flight": "AV92",
+          "cash_cop": 2764650,
+          "vs_google_cop": 10
+        },
+        {
+          "outbound": "AV78 14:00 + AV93 11:35 o AV79 18:15",
+          "flight": "AV78",
+          "cash_cop": 1562670,
+          "vs_google_cop": 10
+        }
+      ]
+    }
   }
 }
