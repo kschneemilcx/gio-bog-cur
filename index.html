@@ -315,6 +315,40 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
       </div>
     </section>
     <section class="card hist-card">
+      <div class="k">regresos 24 oct · Avianca · el cash no cambia con el regreso</div>
+      <div class="table-wrap">
+        <table class="hist-table">
+          <thead>
+            <tr>
+              <th>vuelo</th>
+              <th>sale</th>
+              <th>llega</th>
+              <th>tipo</th>
+              <th>avión</th>
+            </tr>
+          </thead>
+          <tbody id="rt-returns"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="card hist-card">
+      <div class="k">combinaciones ida + vuelta · mismo cash por ida</div>
+      <div class="table-wrap">
+        <table class="hist-table flights">
+          <thead>
+            <tr>
+              <th>ida</th>
+              <th>vuelta</th>
+              <th>cash COP</th>
+              <th>Light</th>
+              <th>tasas</th>
+            </tr>
+          </thead>
+          <tbody id="rt-pairs"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="card hist-card">
       <div class="k">LifeMiles RT · itinerarios AV+AV</div>
       <div class="table-wrap">
         <table class="hist-table">
@@ -357,7 +391,7 @@ table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:
   <p class="foot">Radar GIO · BOG → CUR · solo ida y roundtrip por separado · se actualiza solo</p>
 </main>
 <script>
-const SEED = {"route": "BOG-CUR", "airline": "Avianca", "date": "2026-10-19", "depart": "07:25", "flight_number": "AV92", "currency": "COP", "cash": {"baseline": 914000, "lowest": 914000, "highest": 2206810, "latest": 2206810, "source": "Google Flights one-way", "as_of": "2026-08-27T16:15:01.408111+00:00", "user_yesterday_cop": 914000}, "lifemiles": {"baseline": 40850, "lowest": 40850, "highest": 40850, "latest": 40850, "taxes_cop": 305691, "fare": "Light", "list_before_elite": 43000, "elite_discount_pct": 5, "classic": 44020, "flex": 47180, "lifemiles_plus": 38700, "source": "lifemiles.com Colombia, logged in", "as_of": "2026-08-27T11:29:36.287840-05:00"}, "history": [{"ts": "2026-08-26T12:00:00-05:00", "weekday": "miércoles", "hour_cot": 12, "cash_cop": 914000, "lifemiles": null, "source": "Aleja", "detail": "Precio que Aleja vio ayer (26 ago) en el mismo vuelo 7:25."}, {"ts": "2026-08-27T16:15:01.408111+00:00", "cash_cop": 2206810, "lifemiles": null, "source": "Google Flights one-way (solo ida)", "detail": "AV BOG 07:25-CUR 10:20 directo 1h55. Precio 2.206.810 COP.", "weekday": "jueves", "hour_cot": 11}, {"ts": "2026-08-27T11:29:36.287840-05:00", "weekday": "jueves", "hour_cot": 11, "cash_cop": 2206810, "lifemiles": 40850, "taxes_cop": 305691, "fare": "Light", "flight_number": "AV92", "source": "LifeMiles (sesión Aleja, región Colombia)", "detail": "AV92 07:25-10:20 Light 40850 + 305691 COP (Elite 5%). Classic 44020, Flex 47180. AV78 14:00 desde 12290 (contexto)."}], "arrive": "10:20", "duration": "1h55", "direct": true, "notes": {"avianca_1400_oneway_cop": 900560, "google_route_insight": "precios de la ruta en general bajos; el 7:25 está caro vs el directo de las 14:00"}, "stats": {"by_weekday": {}, "by_hour": {}, "note": "Averages filled as observations arrive. Weekday/hour of BUY, same flight."}, "aleja_low_26ago": 914000, "check_cadence": "every 30 min at :04 and :34 America/Bogota", "roundtrip": {"outbound_date": "2026-10-19", "return_date": "2026-10-24", "currency": "COP", "as_of": "2026-08-27T13:25:44.974762-05:00", "source": "Google Flights RT Avianca + LifeMiles RT logged-in", "cheapest_cash_cop": 1562660, "cheapest_label": "Avianca AV78 14:00 + Avianca vuelta", "flights_outbound": [{"depart": "14:00", "arrive": "17:00", "airline": "Avianca", "flight": "AV78", "return_flight": "AV79 or AV93", "stops": 0, "duration": "2h00", "cash_cop": 1562660, "direct": true}, {"depart": "07:25", "arrive": "10:20", "airline": "Avianca", "flight": "AV92", "return_flight": "AV93 or AV79", "stops": 0, "duration": "1h55", "cash_cop": 2764640, "direct": true}], "lifemiles": {"as_of": "2026-08-27T13:25:44.974762-05:00", "source": "lifemiles.com Colombia, logged in, Elite 5%", "taxes_cop_rt": 454591, "cheapest": {"outbound": "AV78 14:00-17:00", "return": "AV93 11:35-12:30", "light": 21060, "taxes_cop": 454591, "note": "Cart after AV78 Light + AV93 Light: 12290+8770 millas, taxes 454591"}, "av78_av93_light": 21060, "av92_av93_light": 49620, "av92_av93_light_note": "verified booking bar AV92 Light + AV93 Light = 49620 millas", "outbound_19oct": [{"flight": "AV92", "depart": "07:25", "arrive": "10:20", "light": 40850, "classic": 44020, "flex": 47180, "taxes_cop_leg": 235091, "list_before_elite": 43000}, {"flight": "AV78", "depart": "14:00", "arrive": "17:00", "light": 12290, "classic": 15750, "flex": 16560, "taxes_cop_leg": 235091, "list_before_elite": 12940}], "return_24oct_after_av78_light": [{"flight": "AV93", "depart": "11:35", "arrive": "12:30", "light": 8770, "classic": 12010, "flex": 12960, "list_light": 9240}, {"flight": "AV79", "depart": "18:15", "arrive": "19:10", "light": 8770, "classic": 12010, "flex": 12960, "seats_left": 3}], "av78_classic_rt": 27760, "av92_classic_rt": 56030, "av78_flex_rt": 29520, "av92_flex_rt": 60140, "taxes_note": "Cart cumulative RT taxes 454591. Do not use 689682 (that is 235091 outbound display + 454591 already-cumulative return)."}, "lowest_cash_cop": 1562660, "latest_cheapest_cash_cop": 1562660, "history": [{"ts": "2026-08-27T13:19:24.383412-05:00", "weekday": "jueves", "hour_cot": 13, "cheapest_cash_cop": 1468080, "av92_rt_cash_cop": 2764640, "av78_rt_cash_cop": 1562660, "source": "Google Flights RT 19-24 oct"}, {"ts": "2026-08-27T13:25:44.974762-05:00", "weekday": "jueves", "hour_cot": 13, "cheapest_cash_cop": 1562660, "av92_rt_cash_cop": 2764640, "av78_rt_cash_cop": 1562660, "av78_av93_light": 21060, "av92_av93_light": 49620, "taxes_cop_rt": 454591, "source": "LifeMiles RT AV+AV; cash AV from Google Flights RT"}], "airline": "Avianca both legs"}};
+const SEED = {"route": "BOG-CUR", "airline": "Avianca", "date": "2026-10-19", "depart": "07:25", "flight_number": "AV92", "currency": "COP", "cash": {"baseline": 914000, "lowest": 914000, "highest": 2206810, "latest": 2206810, "source": "Google Flights one-way", "as_of": "2026-08-27T16:15:01.408111+00:00", "user_yesterday_cop": 914000}, "lifemiles": {"baseline": 40850, "lowest": 40850, "highest": 40850, "latest": 40850, "taxes_cop": 305691, "fare": "Light", "list_before_elite": 43000, "elite_discount_pct": 5, "classic": 44020, "flex": 47180, "lifemiles_plus": 38700, "source": "lifemiles.com Colombia, logged in", "as_of": "2026-08-27T11:29:36.287840-05:00"}, "history": [{"ts": "2026-08-26T12:00:00-05:00", "weekday": "miércoles", "hour_cot": 12, "cash_cop": 914000, "lifemiles": null, "source": "Aleja", "detail": "Precio que Aleja vio ayer (26 ago) en el mismo vuelo 7:25."}, {"ts": "2026-08-27T16:15:01.408111+00:00", "cash_cop": 2206810, "lifemiles": null, "source": "Google Flights one-way (solo ida)", "detail": "AV BOG 07:25-CUR 10:20 directo 1h55. Precio 2.206.810 COP.", "weekday": "jueves", "hour_cot": 11}, {"ts": "2026-08-27T11:29:36.287840-05:00", "weekday": "jueves", "hour_cot": 11, "cash_cop": 2206810, "lifemiles": 40850, "taxes_cop": 305691, "fare": "Light", "flight_number": "AV92", "source": "LifeMiles (sesión Aleja, región Colombia)", "detail": "AV92 07:25-10:20 Light 40850 + 305691 COP (Elite 5%). Classic 44020, Flex 47180. AV78 14:00 desde 12290 (contexto)."}], "arrive": "10:20", "duration": "1h55", "direct": true, "notes": {"avianca_1400_oneway_cop": 900560, "google_route_insight": "precios de la ruta en general bajos; el 7:25 está caro vs el directo de las 14:00"}, "stats": {"by_weekday": {}, "by_hour": {}, "note": "Averages filled as observations arrive. Weekday/hour of BUY, same flight."}, "aleja_low_26ago": 914000, "check_cadence": "every 30 min at :04 and :34 America/Bogota", "roundtrip": {"outbound_date": "2026-10-19", "return_date": "2026-10-24", "currency": "COP", "as_of": "2026-08-27T13:30:11.409044-05:00", "source": "Google Flights RT Avianca-only filter + LifeMiles RT", "cheapest_cash_cop": 1562660, "cheapest_label": "AV78 14:00 + AV93 11:35 o AV79 18:15", "flights_outbound": [{"depart": "14:00", "arrive": "17:00", "airline": "Avianca", "flight": "AV78", "return_options": ["AV93 11:35", "AV79 18:15"], "stops": 0, "duration": "2h00", "cash_cop": 1562660, "direct": true}, {"depart": "07:25", "arrive": "10:20", "airline": "Avianca", "flight": "AV92", "return_options": ["AV93 11:35", "AV79 18:15"], "stops": 0, "duration": "1h55", "cash_cop": 2764640, "direct": true}], "lifemiles": {"as_of": "2026-08-27T13:25:44.974762-05:00", "source": "lifemiles.com Colombia, logged in, Elite 5%", "taxes_cop_rt": 454591, "cheapest": {"outbound": "AV78 14:00-17:00", "return": "AV93 11:35-12:30", "light": 21060, "taxes_cop": 454591, "note": "Cart after AV78 Light + AV93 Light: 12290+8770 millas, taxes 454591"}, "av78_av93_light": 21060, "av92_av93_light": 49620, "av92_av93_light_note": "verified booking bar AV92 Light + AV93 Light = 49620 millas", "outbound_19oct": [{"flight": "AV92", "depart": "07:25", "arrive": "10:20", "light": 40850, "classic": 44020, "flex": 47180, "taxes_cop_leg": 235091, "list_before_elite": 43000}, {"flight": "AV78", "depart": "14:00", "arrive": "17:00", "light": 12290, "classic": 15750, "flex": 16560, "taxes_cop_leg": 235091, "list_before_elite": 12940}], "return_24oct_after_av78_light": [{"flight": "AV93", "depart": "11:35", "arrive": "12:30", "light": 8770, "classic": 12010, "flex": 12960, "list_light": 9240}, {"flight": "AV79", "depart": "18:15", "arrive": "19:10", "light": 8770, "classic": 12010, "flex": 12960, "seats_left": 3}], "av78_classic_rt": 27760, "av92_classic_rt": 56030, "av78_flex_rt": 29520, "av92_flex_rt": 60140, "taxes_note": "Cart cumulative RT taxes 454591. Do not use 689682 (that is 235091 outbound display + 454591 already-cumulative return)."}, "lowest_cash_cop": 1562660, "latest_cheapest_cash_cop": 1562660, "history": [{"ts": "2026-08-27T13:19:24.383412-05:00", "weekday": "jueves", "hour_cot": 13, "cheapest_cash_cop": 1468080, "av92_rt_cash_cop": 2764640, "av78_rt_cash_cop": 1562660, "source": "Google Flights RT 19-24 oct"}, {"ts": "2026-08-27T13:25:44.974762-05:00", "weekday": "jueves", "hour_cot": 13, "cheapest_cash_cop": 1562660, "av92_rt_cash_cop": 2764640, "av78_rt_cash_cop": 1562660, "av78_av93_light": 21060, "av92_av93_light": 49620, "taxes_cop_rt": 454591, "source": "LifeMiles RT AV+AV; cash AV from Google Flights RT"}, {"ts": "2026-08-27T13:30:11.409044-05:00", "weekday": "jueves", "hour_cot": 13, "cheapest_cash_cop": 1562660, "av92_rt_cash_cop": 2764640, "av78_rt_cash_cop": 1562660, "av78_av93_light": 21060, "av92_av93_light": 49620, "taxes_cop_rt": 454591, "returns_same_price": true, "source": "Google Flights Avianca-only RT 19-24 oct"}], "airline": "Avianca both legs", "flights": [{"outbound": "AV78 14:00-17:00", "return": "AV93 11:35-12:30", "cash_cop": 1562660, "light_millas": 21060, "taxes_cop": 454591}, {"outbound": "AV78 14:00-17:00", "return": "AV79 18:15-19:10", "cash_cop": 1562660, "light_millas": 21060, "taxes_cop": 454591}, {"outbound": "AV92 07:25-10:20", "return": "AV93 11:35-12:30", "cash_cop": 2764640, "light_millas": 49620, "taxes_cop": 454591}, {"outbound": "AV92 07:25-10:20", "return": "AV79 18:15-19:10", "cash_cop": 2764640, "light_millas": 49620, "taxes_cop": 454591}], "flights_return": [{"depart": "11:35", "arrive": "12:30", "airline": "Avianca", "flight": "AV93", "stops": 0, "duration": "1h55", "direct": true, "aircraft": "A320neo"}, {"depart": "18:15", "arrive": "19:10", "airline": "Avianca", "flight": "AV79", "stops": 0, "duration": "1h55", "direct": true, "aircraft": "A320"}]}};
 const cop = n => n==null ? "—" : new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}).format(n);
 const num = n => n==null ? "—" : new Intl.NumberFormat("es-CO").format(n);
 const gio = s => String(s||"").replace(/Aleja/gi,"GIO");
@@ -570,12 +604,37 @@ function renderRT(rt){
     return `<tr>
       <td>${f.depart||"—"}${tag}</td>
       <td>${f.flight||""}</td>
-      <td>${f.return_flight||"—"}</td>
+      <td>${(f.return_options&&f.return_options.length)? f.return_options.join(" · ") : (f.return_flight||"—")}</td>
       <td class="cash ${cls}">${cop(f.cash_cop)}</td>
       <td class="gold">${millas}${millasNote}</td>
       <td>${taxRT? cop(taxRT): "—"}</td>
     </tr>`;
   }).join("") || `<tr><td colspan="6" class="empty">Viajes está sacando solo itinerarios Avianca+Avianca.</td></tr>`;
+  const rets = rt.flights_return||[];
+  const retBody = document.getElementById("rt-returns");
+  if(retBody){
+    retBody.innerHTML = rets.length ? rets.map(r=>`<tr>
+      <td class="gold">${r.flight||""}</td>
+      <td>${r.depart||""}</td>
+      <td>${r.arrive||""}</td>
+      <td>${r.direct||r.stops===0? "directo": stopsLabel(r)}</td>
+      <td>${r.aircraft||""}</td>
+    </tr>`).join("") : `<tr><td colspan="5" class="empty">Sin regresos AV.</td></tr>`;
+  }
+  const pairs = rt.flights||[];
+  const pairBody = document.getElementById("rt-pairs");
+  if(pairBody){
+    pairBody.innerHTML = pairs.length ? pairs.map((p,i)=>{
+      const cheap = p.cash_cop===best;
+      return `<tr class="${cheap?"now":""}">
+        <td>${p.outbound||""}${cheap?' <span class="tag go">más barato</span>':""}</td>
+        <td>${p.return||""}</td>
+        <td class="cash">${cop(p.cash_cop)}</td>
+        <td class="gold">${p.light_millas!=null? num(p.light_millas): "—"}</td>
+        <td>${cop(p.taxes_cop||taxRT)}</td>
+      </tr>`;
+    }).join("") : `<tr><td colspan="5" class="empty">Sin combinaciones.</td></tr>`;
+  }
   const mileRows = [];
   if(lm.cheapest && lm.cheapest.light){
     mileRows.push(`<tr class="now"><td>${lm.cheapest.outbound||"AV78"}</td><td>${lm.cheapest.return||"AV93"}</td><td class="gold">${num(lm.cheapest.light)}</td><td>${num(lm.av78_classic_rt)}</td><td>${num(lm.av78_flex_rt)}</td><td>${cop(taxRT)}</td><td>verificado barra de reserva</td></tr>`);
@@ -607,7 +666,7 @@ function renderRT(rt){
   }).join("") : `<tr><td colspan="7" class="empty">Primera toma RT.</td></tr>`;
   const av92 = all.find(f=>f.flight==="AV92");
   document.getElementById("rt-note").innerHTML =
-    `<strong>Solo Avianca ida y vuelta.</strong> Cash más barato ${cop(best)} (${bestLab}). AV92 cash RT ${cop(av92 && av92.cash_cop)}. Millas más baratas ${cheapM? num(cheapM)+" Light":"—" } + ${cop(taxRT)} tasas (AV78+AV93). AV92+AV93 ${lm.av92_av93_light? num(lm.av92_av93_light)+" Light":"—"}. Classic AV78 ${num(lm.av78_classic_rt)} / AV92 ${num(lm.av92_classic_rt)}. Flex AV78 ${num(lm.av78_flex_rt)} / AV92 ${num(lm.av92_flex_rt)}.`;
+    `<strong>Solo Avianca ida y vuelta.</strong> Cash más barato ${cop(best)} (${bestLab}). AV92 cash RT ${cop(av92 && av92.cash_cop)}. Regresos AV93 11:35 y AV79 18:15, mismo cash. Millas más baratas ${cheapM? num(cheapM)+" Light":"—" } + ${cop(taxRT)} tasas (AV78+AV93). AV92+AV93 ${lm.av92_av93_light? num(lm.av92_av93_light)+" Light":"—"}. Classic AV78 ${num(lm.av78_classic_rt)} / AV92 ${num(lm.av92_classic_rt)}. Flex AV78 ${num(lm.av78_flex_rt)} / AV92 ${num(lm.av92_flex_rt)}.`;
 }
 function tickClock(){
   document.getElementById("clock").textContent = new Date().toLocaleTimeString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",second:"2-digit"});
