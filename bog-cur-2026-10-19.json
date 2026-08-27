@@ -79,7 +79,7 @@
     "outbound_date": "2026-10-19",
     "return_date": "2026-10-24",
     "currency": "COP",
-    "as_of": "2026-08-27T13:30:11.409044-05:00",
+    "as_of": "2026-08-27T14:03:53.684303-05:00",
     "source": "Google Flights RT Avianca-only filter + LifeMiles RT",
     "cheapest_cash_cop": 1562660,
     "cheapest_label": "AV78 14:00 + AV93 11:35 o AV79 18:15",
@@ -264,6 +264,48 @@
         "duration": "1h55",
         "direct": true,
         "aircraft": "A320"
+      }
+    ],
+    "note_vs_oneway": "RT AV78+vuelta 1562660 vs sueltos 900560+725325=1625885 (RT ahorra 63225). RT AV92+vuelta 2764640 vs sueltos 2206810+725325=2932135 (RT ahorra 167495)."
+  },
+  "oneway": {
+    "as_of": "2026-08-27T14:03:53.684303-05:00",
+    "source": "Google Flights one-way, Avianca by time",
+    "currency": "COP",
+    "outbound_19oct": [
+      {
+        "flight": "AV92",
+        "depart": "07:25",
+        "arrive": "10:20",
+        "cash_cop": 2206810,
+        "light_millas": 40850,
+        "taxes_cop": 305691
+      },
+      {
+        "flight": "AV78",
+        "depart": "14:00",
+        "arrive": "17:00",
+        "cash_cop": 900560,
+        "light_millas": 12290,
+        "taxes_cop": null
+      }
+    ],
+    "return_24oct": [
+      {
+        "flight": "AV93",
+        "depart": "11:35",
+        "arrive": "12:30",
+        "cash_cop": 725325,
+        "light_millas": null,
+        "note": "millas one-way pendiente; en RT el tramo Light es 8770"
+      },
+      {
+        "flight": "AV79",
+        "depart": "18:15",
+        "arrive": "19:10",
+        "cash_cop": 725325,
+        "light_millas": null,
+        "note": "millas one-way pendiente; en RT el tramo Light es 8770"
       }
     ]
   }
