@@ -137,6 +137,20 @@ svg.sky{width:100%;height:clamp(64px,14vw,110px);overflow:visible}
 .hours{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
 .hcell{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:8px 4px;text-align:center;font-size:10px;color:var(--muted)}
 .empty{opacity:.7;font-size:13px}
+.hist-card{margin-top:14px}
+.hist-card .hist{height:240px;width:100%}
+.table-wrap{overflow-x:auto;margin-top:8px}
+table.hist-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+.hist-table th{text-align:left;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:10px 10px;border-bottom:1px solid var(--line);font-weight:500}
+.hist-table td{padding:13px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+.hist-table tr.now td{background:rgba(232,195,122,.08)}
+.hist-table .cash{font-family:Fraunces,serif;font-size:18px}
+.hist-table .up{color:#ff8a96}
+.hist-table .down{color:var(--go)}
+.hist-table .gold{color:var(--gold)}
+.hist-table .when{color:var(--muted);font-size:12.5px}
+.hist-table .when b{display:block;color:var(--ink);font-size:13.5px;font-weight:650}
+
 </style>
 </head>
 <body>
@@ -218,16 +232,32 @@ svg.sky{width:100%;height:clamp(64px,14vw,110px);overflow:visible}
     <div class="card kpi"><div class="k">14:00 cash</div><div class="v" id="k-1400">—</div></div>
     <div class="card kpi"><div class="k">último pulso</div><div class="v" id="k-ago" style="font-size:15px">—</div></div>
   </div>
-  <div class="grid">
-    <section class="card">
-      <div class="k">historia cash</div>
-      <svg class="hist" id="chart" viewBox="0 0 640 220" preserveAspectRatio="none"></svg>
-      <ul class="feed" id="feed"></ul>
-    </section>
+  <section class="card hist-card">
+    <div class="k">histórico de precios · lo que manda viajes</div>
+    <svg class="hist" id="chart" viewBox="0 0 640 240" preserveAspectRatio="none"></svg>
+    <div class="table-wrap">
+      <table class="hist-table">
+        <thead>
+          <tr>
+            <th>cuándo</th>
+            <th>cash COP</th>
+            <th>Δ</th>
+            <th>millas Light</th>
+            <th>impuestos</th>
+            <th>fuente</th>
+          </tr>
+        </thead>
+        <tbody id="hist-body"></tbody>
+      </table>
+    </div>
+  </section>
+  <div class="grid" style="margin-top:12px">
     <section class="card">
       <div class="k">lectura</div>
       <p class="note" id="insight"></p>
-      <div class="k" style="margin-top:16px">por hora (cuando haya data)</div>
+    </section>
+    <section class="card">
+      <div class="k">por hora (cuando haya data)</div>
       <div class="hours" id="hours"></div>
     </section>
   </div>
@@ -271,11 +301,27 @@ function decision(d){
   if(latest <= (c.baseline||lo)*1.05) return {lab:"COMPRAR", cls:"go"};
   return {lab:"VIGILAR", cls:""};
 }
+function whenCOT(h){
+  if(h.ts){
+    const d = new Date(h.ts);
+    if(!isNaN(d)){
+      const fecha = d.toLocaleDateString("es-CO",{timeZone:"America/Bogota",day:"2-digit",month:"short"});
+      const hora = d.toLocaleTimeString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit"});
+      return {fecha, hora};
+    }
+  }
+  return {fecha: gio(h.weekday||"—"), hora: (h.hour_cot!=null? h.hour_cot+"h":"")};
+}
+function fuente(h){
+  let s = gio(h.source||"");
+  if(/GIO/i.test(s) && !/LifeMiles|Google/i.test(s)) s = "piso 26 ago";
+  return s.replace(/sesión GIO,?/gi,"").trim();
+}
 function drawChart(hist){
   const svg = document.getElementById("chart");
   const pts = (hist||[]).filter(h=>h.cash_cop);
   if(!pts.length){ svg.innerHTML=""; return; }
-  const w=640,h=220,pad=24;
+  const w=640,h=240,pad=28;
   const ys = pts.map(x=>x.cash_cop);
   const min=Math.min(...ys)*0.96, max=Math.max(...ys)*1.04;
   const x = i => pad + i*(w-2*pad)/Math.max(1,pts.length-1);
@@ -289,8 +335,32 @@ function drawChart(hist){
     </linearGradient></defs>
     <path d="${area}" fill="url(#g)"/>
     <path class="line" d="${d}" fill="none" stroke="#ff2d4a" stroke-width="2.6" stroke-linejoin="round"/>
-    ${pts.map((pt,i)=>`<circle cx="${x(i)}" cy="${y(pt.cash_cop)}" r="4.2" fill="${pt.lifemiles?'#e8c37a':'#fff'}"><animate attributeName="r" values="3;6;3" dur="2.2s" begin="${i*.2}s" repeatCount="indefinite"/></circle>`).join("")}
+    ${pts.map((pt,i)=>`<circle cx="${x(i)}" cy="${y(pt.cash_cop)}" r="4.4" fill="${pt.lifemiles?'#e8c37a':'#fff'}"><animate attributeName="r" values="3.2;6;3.2" dur="2.2s" begin="${i*.2}s" repeatCount="indefinite"/></circle>`).join("")}
   `;
+}
+function drawHist(hist){
+  const rows = (hist||[]).slice().sort((a,b)=> new Date(a.ts||0) - new Date(b.ts||0));
+  const body = document.getElementById("hist-body");
+  if(!rows.length){
+    body.innerHTML = `<tr><td colspan="6" class="empty">Aún no hay filas. Se llenan cuando viajes manda un precio.</td></tr>`;
+    return;
+  }
+  body.innerHTML = rows.slice().reverse().map((h,i,arr)=>{
+    const prev = arr[i+1]; // reverse: next in list is older
+    const delta = prev && prev.cash_cop!=null && h.cash_cop!=null ? h.cash_cop - prev.cash_cop : null;
+    const w = whenCOT(h);
+    const cls = i===0 ? "now" : "";
+    const dcls = delta==null? "" : delta>0? "up" : delta<0? "down" : "";
+    const dtxt = delta==null? "—" : (delta>0?"+":"")+cop(delta);
+    return `<tr class="${cls}">
+      <td class="when"><b>${w.fecha}</b>${w.hora}</td>
+      <td class="cash">${cop(h.cash_cop)}</td>
+      <td class="${dcls}">${dtxt}</td>
+      <td class="gold">${h.lifemiles!=null? num(h.lifemiles): "—"}</td>
+      <td>${h.taxes_cop!=null? cop(h.taxes_cop): "—"}</td>
+      <td>${fuente(h)}</td>
+    </tr>`;
+  }).join("");
 }
 function render(d, changed){
   const c=d.cash||{}, m=d.lifemiles||{};
@@ -329,9 +399,7 @@ function render(d, changed){
   const asof = c.as_of || m.as_of;
   document.getElementById("k-ago").textContent = asof ? new Date(asof).toLocaleString("es-CO",{timeZone:"America/Bogota",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"short"}) : "—";
   drawChart(d.history);
-  document.getElementById("feed").innerHTML = (d.history||[]).slice().reverse().map(h=>`
-    <li><span>${gio(h.weekday||"")} ${h.hour_cot??""}h</span>
-    <span><b>${cop(h.cash_cop)}${h.lifemiles? " · "+num(h.lifemiles)+" millas":""}</b>${gio(h.detail||h.source||"")}</span></li>`).join("");
+  drawHist(d.history);
   document.getElementById("insight").innerHTML = `<strong>${dec.lab}.</strong> El 7:25 está en el techo (${cop(c.latest)}).
     Piso ${cop(c.baseline)}. El directo de las 14:00 anda en ${cop(d.notes && d.notes.avianca_1400_oneway_cop)} cash — más barato, otro vuelo.
     Millas Light ${num(m.latest)} + ${cop(m.taxes_cop)}.`;
