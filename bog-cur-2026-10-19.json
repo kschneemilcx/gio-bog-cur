@@ -120,7 +120,7 @@
       },
       "av78_av93_light": 21060,
       "av92_av93_light": 49620,
-      "av92_av93_light_note": "estimated 40850 outbound + 8770 return shown after AV78 selection; return millas may differ if AV92 is selected first",
+      "av92_av93_light_note": "verified booking bar AV92 Light + AV93 Light = 49620 millas",
       "outbound_19oct": [
         {
           "flight": "AV92",
@@ -150,18 +150,24 @@
           "arrive": "12:30",
           "light": 8770,
           "classic": 12010,
-          "flex": null
+          "flex": 12960,
+          "list_light": 9240
         },
         {
           "flight": "AV79",
           "depart": "18:15",
           "arrive": "19:10",
           "light": 8770,
-          "classic": null,
-          "flex": null,
+          "classic": 12010,
+          "flex": 12960,
           "seats_left": 3
         }
-      ]
+      ],
+      "av78_classic_rt": 27760,
+      "av92_classic_rt": 56030,
+      "av78_flex_rt": 29520,
+      "av92_flex_rt": 60140,
+      "taxes_note": "Cart cumulative RT taxes 454591. Do not use 689682 (that is 235091 outbound display + 454591 already-cumulative return)."
     },
     "lowest_cash_cop": 1562660,
     "latest_cheapest_cash_cop": 1562660,
