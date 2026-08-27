@@ -79,115 +79,92 @@
     "outbound_date": "2026-10-19",
     "return_date": "2026-10-24",
     "currency": "COP",
-    "as_of": "2026-08-27T13:19:24.383412-05:00",
-    "source": "Google Flights round-trip 1 adult",
-    "cheapest_cash_cop": 1468080,
-    "cheapest_label": "Copa 12:08 1 escala PTY",
+    "as_of": "2026-08-27T13:25:44.974762-05:00",
+    "source": "Google Flights RT Avianca + LifeMiles RT logged-in",
+    "cheapest_cash_cop": 1562660,
+    "cheapest_label": "Avianca AV78 14:00 + Avianca vuelta",
     "flights_outbound": [
-      {
-        "depart": "12:08",
-        "arrive": "18:20",
-        "airline": "Copa",
-        "stops": 1,
-        "via": "PTY",
-        "duration": "5h12",
-        "cash_cop": 1468080,
-        "direct": false
-      },
-      {
-        "depart": "18:17",
-        "arrive": "12:18+1",
-        "airline": "Copa",
-        "stops": 1,
-        "via": "PTY",
-        "duration": "17h01",
-        "cash_cop": 1502240,
-        "direct": false
-      },
       {
         "depart": "14:00",
         "arrive": "17:00",
         "airline": "Avianca",
         "flight": "AV78",
+        "return_flight": "AV79 or AV93",
         "stops": 0,
         "duration": "2h00",
         "cash_cop": 1562660,
         "direct": true
       },
       {
-        "depart": "07:00",
-        "arrive": "14:36",
-        "airline": "Copa",
-        "stops": 1,
-        "via": "PTY",
-        "duration": "6h36",
-        "cash_cop": 1584150,
-        "direct": false
-      },
-      {
-        "depart": "06:10",
-        "arrive": "12:18",
-        "airline": "Copa",
-        "stops": 1,
-        "via": "PTY",
-        "duration": "5h08",
-        "cash_cop": 1635390,
-        "direct": false
-      },
-      {
-        "depart": "08:50",
-        "arrive": "14:36",
-        "airline": "Copa",
-        "stops": 1,
-        "via": "PTY",
-        "duration": "4h46",
-        "cash_cop": 1676350,
-        "direct": false
-      },
-      {
-        "depart": "07:30",
-        "arrive": "18:20",
-        "airline": "Avianca+Copa",
-        "stops": 2,
-        "via": "SJO,PTY",
-        "duration": "9h50",
-        "cash_cop": 2736200,
-        "direct": false
-      },
-      {
         "depart": "07:25",
         "arrive": "10:20",
         "airline": "Avianca",
         "flight": "AV92",
+        "return_flight": "AV93 or AV79",
         "stops": 0,
         "duration": "1h55",
         "cash_cop": 2764640,
         "direct": true
-      },
-      {
-        "depart": "22:40",
-        "arrive": "12:18+1",
-        "airline": "Avianca+Copa",
-        "stops": 2,
-        "via": "SJO,PTY",
-        "duration": "12h38",
-        "cash_cop": 2770360,
-        "direct": false
-      },
-      {
-        "depart": "07:55",
-        "arrive": "18:20",
-        "airline": "Avianca+Copa",
-        "stops": 2,
-        "via": "AUA,PTY",
-        "duration": "9h25",
-        "cash_cop": 6285520,
-        "direct": false
       }
     ],
-    "lifemiles": null,
-    "lowest_cash_cop": 1468080,
-    "latest_cheapest_cash_cop": 1468080,
+    "lifemiles": {
+      "as_of": "2026-08-27T13:25:44.974762-05:00",
+      "source": "lifemiles.com Colombia, logged in, Elite 5%",
+      "taxes_cop_rt": 454591,
+      "cheapest": {
+        "outbound": "AV78 14:00-17:00",
+        "return": "AV93 11:35-12:30",
+        "light": 21060,
+        "taxes_cop": 454591,
+        "note": "Cart after AV78 Light + AV93 Light: 12290+8770 millas, taxes 454591"
+      },
+      "av78_av93_light": 21060,
+      "av92_av93_light": 49620,
+      "av92_av93_light_note": "estimated 40850 outbound + 8770 return shown after AV78 selection; return millas may differ if AV92 is selected first",
+      "outbound_19oct": [
+        {
+          "flight": "AV92",
+          "depart": "07:25",
+          "arrive": "10:20",
+          "light": 40850,
+          "classic": 44020,
+          "flex": 47180,
+          "taxes_cop_leg": 235091,
+          "list_before_elite": 43000
+        },
+        {
+          "flight": "AV78",
+          "depart": "14:00",
+          "arrive": "17:00",
+          "light": 12290,
+          "classic": 15750,
+          "flex": 16560,
+          "taxes_cop_leg": 235091,
+          "list_before_elite": 12940
+        }
+      ],
+      "return_24oct_after_av78_light": [
+        {
+          "flight": "AV93",
+          "depart": "11:35",
+          "arrive": "12:30",
+          "light": 8770,
+          "classic": 12010,
+          "flex": null
+        },
+        {
+          "flight": "AV79",
+          "depart": "18:15",
+          "arrive": "19:10",
+          "light": 8770,
+          "classic": null,
+          "flex": null,
+          "seats_left": 3
+        }
+      ]
+    },
+    "lowest_cash_cop": 1562660,
+    "latest_cheapest_cash_cop": 1562660,
     "history": [
       {
         "ts": "2026-08-27T13:19:24.383412-05:00",
@@ -197,7 +174,20 @@
         "av92_rt_cash_cop": 2764640,
         "av78_rt_cash_cop": 1562660,
         "source": "Google Flights RT 19-24 oct"
+      },
+      {
+        "ts": "2026-08-27T13:25:44.974762-05:00",
+        "weekday": "jueves",
+        "hour_cot": 13,
+        "cheapest_cash_cop": 1562660,
+        "av92_rt_cash_cop": 2764640,
+        "av78_rt_cash_cop": 1562660,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 49620,
+        "taxes_cop_rt": 454591,
+        "source": "LifeMiles RT AV+AV; cash AV from Google Flights RT"
       }
-    ]
+    ],
+    "airline": "Avianca both legs"
   }
 }
