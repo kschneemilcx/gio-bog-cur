@@ -10,8 +10,8 @@
     "lowest": 914000,
     "highest": 2206810,
     "latest": 1894790,
-    "source": "Google Flights one-way",
-    "as_of": "2026-08-28T05:24:41.209911-05:00",
+    "source": "Google Flights one-way (GUI Chrome; CDP caído)",
+    "as_of": "2026-08-28T06:01:44.343586-05:00",
     "user_yesterday_cop": 914000
   },
   "lifemiles": {
@@ -26,8 +26,8 @@
     "classic": 44020,
     "flex": 47180,
     "lifemiles_plus": 38700,
-    "source": "lifemiles.com, logged in Klaus Elite 5% (no re-leído este ciclo; driver caído, sin pestaña nueva; última Light 40850 + tasas COP 307591 / +US$ 99.50)",
-    "as_of": "2026-08-28T05:24:41.209911-05:00"
+    "source": "lifemiles.com, logged in Klaus Elite 5% (no re-leído este ciclo; browserUse CDP caído; sin pestaña nueva; última Light 40850 + tasas COP 307591)",
+    "as_of": "2026-08-28T06:01:44.343586-05:00"
   },
   "history": [
     {
@@ -489,6 +489,31 @@
       "kayak_av92_cash_cop": 2138366,
       "kayak_av78_cash_cop": 869191,
       "kayak_return_cash_cop": 693318
+    },
+    {
+      "ts": "2026-08-28T06:01:44.343586-05:00",
+      "weekday": "viernes",
+      "hour_cot": 6,
+      "cash_cop": 1894790,
+      "lifemiles": 40850,
+      "taxes_cop": 307591,
+      "fare": "Light",
+      "flight_number": "AV92",
+      "source": "Radar 30min: Google Flights cash GUI (Kayak parcial; LM no leídos)",
+      "detail": "AV92 cash GF UNCHANGED 1894790. Millas no re-leídas (quedan 40850 + 307591). Cambio: GF OW CUR-BOG AV93/AV79 725636→725643 (+7). AV78 OW 906980 sin cambio. GF RT no re-leído (quedan AV78+vuelta 1574680 / AV92+vuelta 2483630). Kayak parcial: AV79 return 693318→699158; AV92/AV78/AV93/RT Kayak no re-leídos. browserUse CDP caído; leído por computerUse GUI; sin pestaña nueva LifeMiles/WhatsApp.",
+      "ow_return_cash_cop": 725643,
+      "ow_return_prev_cash_cop": 725636,
+      "av78_cash_cop": 906980,
+      "av78_prev_cash_cop": 906980,
+      "av92_prev_cash_cop": 1894790,
+      "av92_rt_cash_cop": 2483630,
+      "av92_rt_prev_cash_cop": 2483630,
+      "av78_rt_cash_cop": 1574680,
+      "av78_rt_prev_cash_cop": 1574680,
+      "kayak_av92_cash_cop": 2138366,
+      "kayak_av78_cash_cop": 869191,
+      "kayak_return_cash_cop": 699158,
+      "kayak_return_prev_cash_cop": 693318
     }
   ],
   "arrive": "10:20",
@@ -509,8 +534,8 @@
     "outbound_date": "2026-10-19",
     "return_date": "2026-10-24",
     "currency": "COP",
-    "as_of": "2026-08-28T05:24:41.209911-05:00",
-    "source": "Google Flights RT Avianca-only + Kayak (no re-leído, driver caído) + LifeMiles (no re-leído)",
+    "as_of": "2026-08-28T06:01:44.343586-05:00",
+    "source": "Google Flights RT (NO re-leído este ciclo; valores stale) + Kayak parcial + LifeMiles (no re-leído)",
     "cheapest_cash_cop": 1574680,
     "cheapest_label": "AV78 14:00 + AV93 11:35 o AV79 18:15",
     "flights_outbound": [
@@ -1129,8 +1154,8 @@
     "note_vs_oneway": "RT AV78+vuelta 1574680 vs sueltos GF 906980+725636=1632616 (RT ahorra 57936). RT AV92+vuelta 2483630 vs sueltos GF 1894790+725636=2620426 (RT ahorra 136796). Kayak OW idas 2138366/869191 (stale); regresos Kayak 693318 (stale) vs GF 725636."
   },
   "oneway": {
-    "as_of": "2026-08-28T05:24:41.209911-05:00",
-    "source": "Google Flights cash (Kayak/LM no re-leídos este ciclo; driver caído)",
+    "as_of": "2026-08-28T06:01:44.343586-05:00",
+    "source": "Google Flights cash GUI (Kayak parcial; LM no re-leído; RT GF no re-leído)",
     "currency": "COP",
     "outbound_19oct": [
       {
@@ -1159,24 +1184,26 @@
         "flight": "AV93",
         "depart": "11:35",
         "arrive": "12:30",
-        "cash_cop": 725636,
+        "cash_cop": 725643,
         "light_millas": 8770,
-        "taxes_cop": 213091
+        "taxes_cop": 213091,
+        "prev_cash_cop": 725636
       },
       {
         "flight": "AV79",
         "depart": "18:15",
         "arrive": "19:10",
-        "cash_cop": 725636,
+        "cash_cop": 725643,
         "light_millas": 8770,
         "taxes_cop": 213091,
-        "seats_left_light": 2
+        "seats_left_light": 2,
+        "prev_cash_cop": 725636
       }
     ]
   },
   "kayak": {
-    "as_of": "2026-08-28T05:24:41.209911-05:00",
-    "source": "kayak.com.co Light 1 adult COP, filtro Avianca (NO re-leído este ciclo; valores OW/RT stale; browser driver caído: tabs list/snapshot failed)",
+    "as_of": "2026-08-28T06:01:44.343586-05:00",
+    "source": "kayak.com.co parcial GUI: solo se vio CUR-BOG AV79 18:15 Light 699158; AV93/BOG-CUR/RT no re-leídos; resto stale",
     "oneway": {
       "outbound_19oct": [
         {
@@ -1209,7 +1236,7 @@
           "flight": "AV79",
           "depart": "18:15",
           "arrive": "19:10",
-          "cash_cop": 693318,
+          "cash_cop": 699158,
           "fare": "Light",
           "prev_cash_cop": 693318
         }
@@ -1251,7 +1278,7 @@
         "rt_cheapest_cop": 1562687,
         "note": "ads Kayak: OW 900594 (visto en anuncio; listado no leído)"
       },
-      "note": "Kayak no re-leído (browser driver caído). GF AV92 OW 1894790 sin cambio. GF AV78 OW 906980 sin cambio. GF regresos 725570→725636 (+66). GF RT AV78 1574680 y AV92 2483630 sin cambio. LM no leído."
+      "note": "Ciclo 2026-08-28T06:01:44.343586-05:00: GF AV92 1894790 sin cambio; GF regresos 725636→725643; Kayak AV79 693318→699158; RT/LM no re-leídos"
     }
   }
 }
