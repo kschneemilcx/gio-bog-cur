@@ -11,7 +11,7 @@
     "highest": 2206810,
     "latest": 2206810,
     "source": "Google Flights one-way",
-    "as_of": "2026-08-28T00:15:00-05:00",
+    "as_of": "2026-08-28T00:34:00-05:00",
     "user_yesterday_cop": 914000
   },
   "lifemiles": {
@@ -27,7 +27,7 @@
     "flex": 47180,
     "lifemiles_plus": 38700,
     "source": "lifemiles.com, logged in Klaus Elite 5%, región US (+US$ 99.50; COP tasas no reconfirmadas este ciclo)",
-    "as_of": "2026-08-28T00:15:00-05:00"
+    "as_of": "2026-08-28T00:34:00-05:00"
   },
   "history": [
     {
@@ -336,6 +336,23 @@
       "kayak_av92_cash_cop": 2138366,
       "kayak_av78_cash_cop": 869191,
       "kayak_return_cash_cop": 693318
+    },
+    {
+      "ts": "2026-08-28T00:34:00-05:00",
+      "weekday": "viernes",
+      "hour_cot": 0,
+      "cash_cop": 2206810,
+      "lifemiles": 40850,
+      "taxes_cop": 307591,
+      "fare": "Light",
+      "flight_number": "AV92",
+      "source": "Radar 30min: Google Flights cash + Kayak OW idas (LM/Kayak regresos-RT no leídos)",
+      "detail": "AV92 cash/millas UNCHANGED GF 2206810 / 40850 + 307591 (LM no re-leído). Cambio: GF OW CUR-BOG AV93/AV79 725433→725493 (+60). Kayak OW idas sin cambio (2138366/869191). Kayak OW regresos y RT no leídos (browser driver caído). GF RT sin cambio 1562660/2764640.",
+      "ow_return_cash_cop": 725493,
+      "ow_return_prev_cash_cop": 725433,
+      "kayak_av92_cash_cop": 2138366,
+      "kayak_av78_cash_cop": 869191,
+      "kayak_return_cash_cop": 693318
     }
   ],
   "arrive": "10:20",
@@ -356,8 +373,8 @@
     "outbound_date": "2026-10-19",
     "return_date": "2026-10-24",
     "currency": "COP",
-    "as_of": "2026-08-28T00:15:00-05:00",
-    "source": "Google Flights RT Avianca-only + Kayak RT + LifeMiles OW AV92 Light (tasas COP no reconfirmadas)",
+    "as_of": "2026-08-28T00:34:00-05:00",
+    "source": "Google Flights RT Avianca-only + Kayak RT (stale este ciclo) + LifeMiles (no re-leído)",
     "cheapest_cash_cop": 1562660,
     "cheapest_label": "AV78 14:00 + AV93 11:35 o AV79 18:15",
     "flights_outbound": [
@@ -774,6 +791,24 @@
         "kayak_return_ow": 693318,
         "source": "Radar cash Google Flights + LifeMiles OW AV92 + Kayak",
         "detail": "RT cash GF/Kayak sin cambio. GF OW regresos 725440→725433 (−7). Kayak OW/RT sin cambio. LM AV92 Light 40850 confirmado; tasas COP no reconfirmadas."
+      },
+      {
+        "ts": "2026-08-28T00:34:00-05:00",
+        "weekday": "viernes",
+        "hour_cot": 0,
+        "cheapest_cash_cop": 1562660,
+        "av92_rt_cash_cop": 2764640,
+        "av78_rt_cash_cop": 1562660,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 49620,
+        "taxes_cop_rt": 454591,
+        "ow_return_cash_cop": 725493,
+        "ow_return_taxes_cop": 213091,
+        "kayak_av92_ow": 2138366,
+        "kayak_av78_ow": 869191,
+        "kayak_return_ow": 693318,
+        "source": "Radar cash Google Flights + Kayak OW idas (LM/Kayak regresos-RT no leídos)",
+        "detail": "RT cash GF sin cambio. GF OW regresos 725433→725493 (+60). Kayak OW idas sin cambio; Kayak regresos/RT no re-leídos. LM no leído."
       }
     ],
     "airline": "Avianca both legs",
@@ -829,11 +864,11 @@
         "aircraft": "A320"
       }
     ],
-    "note_vs_oneway": "RT AV78+vuelta 1562660 vs sueltos GF 900560+725433=1625993 (RT ahorra 63333). RT AV92+vuelta 2764640 vs sueltos GF 2206810+725433=2932243 (RT ahorra 167603). Kayak OW idas 2138366/869191; regresos Kayak 693318 vs GF 725433."
+    "note_vs_oneway": "RT AV78+vuelta 1562660 vs sueltos GF 900560+725493=1626053 (RT ahorra 63393). RT AV92+vuelta 2764640 vs sueltos GF 2206810+725493=2932303 (RT ahorra 167663). Kayak OW idas 2138366/869191; regresos Kayak 693318 (stale) vs GF 725493."
   },
   "oneway": {
-    "as_of": "2026-08-28T00:15:00-05:00",
-    "source": "Google Flights cash + Kayak + LifeMiles OW AV92 Light (tasas COP no reconfirmadas; LM mostró +US$ 99.50)",
+    "as_of": "2026-08-28T00:34:00-05:00",
+    "source": "Google Flights cash + Kayak OW idas (regresos/RT Kayak no leídos; LM no leído)",
     "currency": "COP",
     "outbound_19oct": [
       {
@@ -862,7 +897,7 @@
         "flight": "AV93",
         "depart": "11:35",
         "arrive": "12:30",
-        "cash_cop": 725433,
+        "cash_cop": 725493,
         "light_millas": 8770,
         "taxes_cop": 213091
       },
@@ -870,7 +905,7 @@
         "flight": "AV79",
         "depart": "18:15",
         "arrive": "19:10",
-        "cash_cop": 725433,
+        "cash_cop": 725493,
         "light_millas": 8770,
         "taxes_cop": 213091,
         "seats_left_light": 2
@@ -878,8 +913,8 @@
     ]
   },
   "kayak": {
-    "as_of": "2026-08-28T00:15:00-05:00",
-    "source": "kayak.com.co Light 1 adult COP, filtro Avianca (tabs reutilizadas / navegación in-place)",
+    "as_of": "2026-08-28T00:34:00-05:00",
+    "source": "kayak.com.co Light 1 adult COP, filtro Avianca (OW idas leídas; regresos/RT no leídos por driver caído)",
     "oneway": {
       "outbound_19oct": [
         {
@@ -952,9 +987,9 @@
         "ow_av78_cop": 900594,
         "ow_return_cop": 693335,
         "rt_cheapest_cop": 1562687,
-        "note": "ads Kayak: OW 900594, regreso 693335, RT 1562687"
+        "note": "ads Kayak: OW 900594 (solo idas leídas este ciclo)"
       },
-      "note": "Kayak OW/RT sin cambio (AV92 2138366 / AV78 869191 / regresos 693318 / RT 1562670 y 2764650). GF OW regresos 725440→725433 (−7). avianca.com-via-Kayak ads RT 1562687. LM AV92 Light 40850 (tasas COP no reconfirmadas)."
+      "note": "Kayak OW idas sin cambio (AV92 2138366 / AV78 869191). Kayak regresos/RT no re-leídos (driver caído). GF OW regresos 725433→725493 (+60). LM no leído."
     }
   }
 }
