@@ -9,25 +9,25 @@
     "baseline": 914000,
     "lowest": 914000,
     "highest": 2206810,
-    "latest": 1894790,
+    "latest": 2091420,
     "source": "Google Flights one-way",
-    "as_of": "2026-08-28T11:26:40.686278-05:00",
+    "as_of": "2026-08-31T22:56:34.505928-05:00",
     "user_yesterday_cop": 914000
   },
   "lifemiles": {
     "baseline": 40850,
-    "lowest": 40850,
+    "lowest": 33880,
     "highest": 40850,
-    "latest": 40850,
+    "latest": 33880,
     "taxes_cop": 307591,
     "fare": "Light",
-    "list_before_elite": 43000,
+    "list_before_elite": 35670,
     "elite_discount_pct": 5,
     "classic": 44020,
     "flex": 47180,
-    "lifemiles_plus": 38700,
-    "source": "lifemiles.com, logged in Klaus Elite 5% (browserUse; Light 40850 + US$99.50 tasas; COP tasas no reconfirmadas este ciclo, quedan 307591)",
-    "as_of": "2026-08-28T11:26:40.686278-05:00"
+    "lifemiles_plus": 32100,
+    "source": "lifemiles.com, Elite list view: AV92 From 35670 / Light Elite 33880 + US$99.50; Plus 32100. AV78 12940/12290. Regresos: AV93 Light 8770 + US$68.30; AV79 Light 15200 + US$68.30. Tasas COP no reconfirmadas (quedan 307591).",
+    "as_of": "2026-08-31T22:56:34.505928-05:00"
   },
   "history": [
     {
@@ -714,14 +714,96 @@
       "kayak_av78_cash_cop": 881282,
       "kayak_return_cash_cop": 730600,
       "kayak_return_prev_cash_cop": 699158
+    },
+    {
+      "ts": "2026-08-31T21:50:17.297482-05:00",
+      "weekday": "lunes",
+      "hour_cot": 21,
+      "cash_cop": 2091420,
+      "lifemiles": 33880,
+      "taxes_cop": 307591,
+      "fare": "Light",
+      "flight_number": "AV92",
+      "source": "Radar 31 ago ~21:45 COT: GF cash WebFetch + Kayak browserUse + LifeMiles OW (list 35670 / Elite Light 33880 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva.",
+      "detail": "AV92 cash GF 1894790→2091420 (+196630). millas 40850→33880. AV78 OW 906980→986140 (+79160). GF OW CUR-BOG AV93/AV79 735901→786358 (+50457). GF RT AV78 1574680→1601400 (+26720); GF RT AV92 2483630→2527220 (+43590). Kayak OW idas AV92 1847422→2003267; AV78 881282→937949. Kayak OW regresos AV93 730600→758666; AV79 730600→798673. Radar 31 ago ~21:45 COT: GF cash WebFetch + Kayak browserUse + LifeMiles OW (list 35670 / Elite Light 33880 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva.",
+      "ow_return_cash_cop": 786358,
+      "ow_return_prev_cash_cop": 735901,
+      "av78_cash_cop": 986140,
+      "av78_prev_cash_cop": 906980,
+      "av92_prev_cash_cop": 1894790,
+      "av92_rt_cash_cop": 2527220,
+      "av92_rt_prev_cash_cop": 2483630,
+      "av78_rt_cash_cop": 1601400,
+      "av78_rt_prev_cash_cop": 1574680,
+      "kayak_av92_cash_cop": 2003267,
+      "kayak_av78_cash_cop": 937949,
+      "kayak_return_cash_cop": 758666,
+      "kayak_return_prev_cash_cop": 730600
+    },
+    {
+      "ts": "2026-08-31T22:29:38.994337-05:00",
+      "weekday": "lunes",
+      "hour_cot": 22,
+      "cash_cop": 2091420,
+      "lifemiles": 33880,
+      "taxes_cop": 307591,
+      "fare": "Light",
+      "flight_number": "AV92",
+      "source": "Radar 31 ago ~22:28 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW (KLAUS Elite 5%, Light 33880/12290 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva.",
+      "detail": "AV92 cash GF UNCHANGED 2091420. millas UNCHANGED 33880 + 307591. AV78 OW 986140 sin cambio. GF OW CUR-BOG AV93 786358→786308 (-50); AV79 815778→817849 (+2071). Radar 31 ago ~22:28 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW (KLAUS Elite 5%, Light 33880/12290 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva.",
+      "ow_return_cash_cop": 786308,
+      "ow_return_prev_cash_cop": 786358,
+      "av78_cash_cop": 986140,
+      "av78_prev_cash_cop": 986140,
+      "av92_prev_cash_cop": 2091420,
+      "av92_rt_cash_cop": 2527220,
+      "av92_rt_prev_cash_cop": 2527220,
+      "av78_rt_cash_cop": 1601400,
+      "av78_rt_prev_cash_cop": 1601400,
+      "kayak_av92_cash_cop": 2003267,
+      "kayak_av78_cash_cop": 937949,
+      "kayak_return_cash_cop": 758666,
+      "kayak_return_prev_cash_cop": 758666,
+      "ow_av79_cash_cop": 817849,
+      "ow_av79_prev_cash_cop": 815778
+    },
+    {
+      "ts": "2026-08-31T22:56:34.505928-05:00",
+      "weekday": "lunes",
+      "hour_cot": 22,
+      "cash_cop": 2091420,
+      "lifemiles": 33880,
+      "taxes_cop": 307591,
+      "fare": "Light",
+      "flight_number": "AV92",
+      "source": "Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva.",
+      "detail": "AV92 cash GF UNCHANGED 2091420. millas UNCHANGED 33880 + 307591. AV78 OW 986140 sin cambio. GF OW regresos AV93 786308 / AV79 817849 sin cambio. GF RT 1601400/2527220 sin cambio. Kayak OW idas AV92 2003267→2086708 (+83441); AV78 937949→977498 (+39549). Kayak OW regresos AV93 758666→766673 (+8007); AV79 798673 sin cambio. Kayak RT AV78+AV93 1601410 / AV78+AV79 1680400 / AV92+AV93 2527230 / AV92+AV79 2637100. LM regreso AV79 Light 8770→15200 (+6430); AV93 Light 8770 sin cambio. Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva.",
+      "ow_return_cash_cop": 786308,
+      "ow_return_prev_cash_cop": 786308,
+      "av78_cash_cop": 986140,
+      "av78_prev_cash_cop": 986140,
+      "av92_prev_cash_cop": 2091420,
+      "av92_rt_cash_cop": 2527220,
+      "av92_rt_prev_cash_cop": 2527220,
+      "av78_rt_cash_cop": 1601400,
+      "av78_rt_prev_cash_cop": 1601400,
+      "kayak_av92_cash_cop": 2086708,
+      "kayak_av78_cash_cop": 977498,
+      "kayak_return_cash_cop": 766673,
+      "kayak_return_prev_cash_cop": 758666,
+      "kayak_av79_cash_cop": 798673,
+      "lm_av79_light": 15200,
+      "lm_av79_prev_light": 8770,
+      "ow_av79_cash_cop": 817849,
+      "ow_av79_prev_cash_cop": 817849
     }
   ],
   "arrive": "10:20",
   "duration": "1h55",
   "direct": true,
   "notes": {
-    "avianca_1400_oneway_cop": 906980,
-    "google_route_insight": "AV92 OW 1894790; AV78 OW 906980; regresos GF 735901/735901; RT AV78 1574680, RT AV92 2483630"
+    "avianca_1400_oneway_cop": 986140,
+    "google_route_insight": "AV92 OW 2091420; AV78 OW 986140; regresos GF 786308/817849; RT AV78 1601400, RT AV92 2527220"
   },
   "stats": {
     "by_weekday": {},
@@ -734,9 +816,9 @@
     "outbound_date": "2026-10-19",
     "return_date": "2026-10-24",
     "currency": "COP",
-    "as_of": "2026-08-28T11:26:40.686278-05:00",
-    "source": "Radar 30min: GF cash WebFetch + Kayak browserUse + LifeMiles OW (KLAUS Elite 5%, Light confirmado; tasas COP no reconfirmadas US$99.50). Sin pestaña nueva.",
-    "cheapest_cash_cop": 1574680,
+    "as_of": "2026-08-31T22:56:34.505928-05:00",
+    "source": "Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva.",
+    "cheapest_cash_cop": 1601400,
     "cheapest_label": "AV78 14:00 + AV93 11:35 o AV79 18:15",
     "flights_outbound": [
       {
@@ -750,7 +832,7 @@
         ],
         "stops": 0,
         "duration": "2h00",
-        "cash_cop": 1574680,
+        "cash_cop": 1601400,
         "direct": true
       },
       {
@@ -764,7 +846,7 @@
         ],
         "stops": 0,
         "duration": "1h55",
-        "cash_cop": 2483630,
+        "cash_cop": 2527220,
         "direct": true
       }
     ],
@@ -780,18 +862,18 @@
         "note": "Cart after AV78 Light + AV93 Light: 12290+8770 millas, taxes 454591"
       },
       "av78_av93_light": 21060,
-      "av92_av93_light": 49620,
-      "av92_av93_light_note": "verified booking bar AV92 Light + AV93 Light = 49620 millas",
+      "av92_av93_light": 42650,
+      "av92_av93_light_note": "estimated OW lights 33880+8770; cart not re-verified this cycle",
       "outbound_19oct": [
         {
           "flight": "AV92",
           "depart": "07:25",
           "arrive": "10:20",
-          "light": 40850,
+          "light": 33880,
           "classic": 44020,
           "flex": 47180,
           "taxes_cop_leg": 235091,
-          "list_before_elite": 43000
+          "list_before_elite": 35670
         },
         {
           "flight": "AV78",
@@ -818,10 +900,11 @@
           "flight": "AV79",
           "depart": "18:15",
           "arrive": "19:10",
-          "light": 8770,
+          "light": 15200,
           "classic": 12010,
           "flex": 12960,
-          "seats_left": 3
+          "seats_left": 3,
+          "list_light": 16000
         }
       ],
       "av78_classic_rt": 27760,
@@ -831,7 +914,7 @@
       "taxes_note": "Cart cumulative RT taxes 454591. Do not use 689682 (that is 235091 outbound display + 454591 already-cumulative return)."
     },
     "lowest_cash_cop": 1562660,
-    "latest_cheapest_cash_cop": 1574680,
+    "latest_cheapest_cash_cop": 1601400,
     "history": [
       {
         "ts": "2026-08-27T13:19:24.383412-05:00",
@@ -1440,6 +1523,61 @@
         "kayak_return_ow": 730600,
         "source": "Radar 30min: GF cash WebFetch + Kayak browserUse + LifeMiles OW (KLAUS Elite 5%, Light confirmado; tasas COP no reconfirmadas US$99.50). Sin pestaña nueva.",
         "detail": "AV92 cash GF UNCHANGED 1894790. millas UNCHANGED 40850 + 307591. AV78 OW 906980 sin cambio. GF OW CUR-BOG AV93/AV79 734085→735901 (+1816). Kayak OW idas AV92 1847972→1847422; AV78 881282→881282. Kayak OW regresos AV93 699158→730600; AV79 699158→730600. Radar 30min: GF cash WebFetch + Kayak browserUse + LifeMiles OW (KLAUS Elite 5%, Light confirmado; tasas COP no reconfirmadas US$99.50). Sin pestaña nueva."
+      },
+      {
+        "ts": "2026-08-31T21:50:17.297482-05:00",
+        "weekday": "lunes",
+        "hour_cot": 21,
+        "cheapest_cash_cop": 1601400,
+        "av92_rt_cash_cop": 2527220,
+        "av78_rt_cash_cop": 1601400,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 49620,
+        "taxes_cop_rt": 454591,
+        "ow_return_cash_cop": 786358,
+        "ow_return_taxes_cop": 213091,
+        "kayak_av92_ow": 2003267,
+        "kayak_av78_ow": 937949,
+        "kayak_return_ow": 758666,
+        "source": "Radar 31 ago ~21:45 COT: GF cash WebFetch + Kayak browserUse + LifeMiles OW (list 35670 / Elite Light 33880 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva.",
+        "detail": "AV92 cash GF 1894790→2091420 (+196630). millas 40850→33880. AV78 OW 906980→986140 (+79160). GF OW CUR-BOG AV93/AV79 735901→786358 (+50457). GF RT AV78 1574680→1601400 (+26720); GF RT AV92 2483630→2527220 (+43590). Kayak OW idas AV92 1847422→2003267; AV78 881282→937949. Kayak OW regresos AV93 730600→758666; AV79 730600→798673. Radar 31 ago ~21:45 COT: GF cash WebFetch + Kayak browserUse + LifeMiles OW (list 35670 / Elite Light 33880 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva."
+      },
+      {
+        "ts": "2026-08-31T22:29:38.994337-05:00",
+        "weekday": "lunes",
+        "hour_cot": 22,
+        "cheapest_cash_cop": 1601400,
+        "av92_rt_cash_cop": 2527220,
+        "av78_rt_cash_cop": 1601400,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 42650,
+        "taxes_cop_rt": 454591,
+        "ow_return_cash_cop": 786308,
+        "ow_return_taxes_cop": 213091,
+        "kayak_av92_ow": 2003267,
+        "kayak_av78_ow": 937949,
+        "kayak_return_ow": 758666,
+        "source": "Radar 31 ago ~22:28 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW (KLAUS Elite 5%, Light 33880/12290 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva.",
+        "detail": "AV92 cash GF UNCHANGED 2091420. millas UNCHANGED 33880 + 307591. AV78 OW 986140 sin cambio. GF OW CUR-BOG AV93 786358→786308 (-50); AV79 815778→817849 (+2071). Radar 31 ago ~22:28 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW (KLAUS Elite 5%, Light 33880/12290 + US$99.50; Plus 32100; tasas COP no reconfirmadas). Sin pestaña nueva."
+      },
+      {
+        "ts": "2026-08-31T22:56:34.505928-05:00",
+        "weekday": "lunes",
+        "hour_cot": 22,
+        "cheapest_cash_cop": 1601400,
+        "av92_rt_cash_cop": 2527220,
+        "av78_rt_cash_cop": 1601400,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 42650,
+        "taxes_cop_rt": 454591,
+        "ow_return_cash_cop": 786308,
+        "ow_return_taxes_cop": 213091,
+        "kayak_av92_ow": 2086708,
+        "kayak_av78_ow": 977498,
+        "kayak_return_ow": 766673,
+        "lm_av79_light": 15200,
+        "source": "Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva.",
+        "detail": "AV92 cash GF UNCHANGED 2091420. millas UNCHANGED 33880 + 307591. AV78 OW 986140 sin cambio. GF OW regresos AV93 786308 / AV79 817849 sin cambio. GF RT 1601400/2527220 sin cambio. Kayak OW idas AV92 2003267→2086708 (+83441); AV78 937949→977498 (+39549). Kayak OW regresos AV93 758666→766673 (+8007); AV79 798673 sin cambio. Kayak RT AV78+AV93 1601410 / AV78+AV79 1680400 / AV92+AV93 2527230 / AV92+AV79 2637100. LM regreso AV79 Light 8770→15200 (+6430); AV93 Light 8770 sin cambio. Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva."
       }
     ],
     "airline": "Avianca both legs",
@@ -1447,28 +1585,28 @@
       {
         "outbound": "AV78 14:00-17:00",
         "return": "AV93 11:35-12:30",
-        "cash_cop": 1574680,
+        "cash_cop": 1601400,
         "light_millas": 21060,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV78 14:00-17:00",
         "return": "AV79 18:15-19:10",
-        "cash_cop": 1574680,
+        "cash_cop": 1601400,
         "light_millas": 21060,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV92 07:25-10:20",
         "return": "AV93 11:35-12:30",
-        "cash_cop": 2483630,
+        "cash_cop": 2527220,
         "light_millas": 49620,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV92 07:25-10:20",
         "return": "AV79 18:15-19:10",
-        "cash_cop": 2483630,
+        "cash_cop": 2527220,
         "light_millas": 49620,
         "taxes_cop": 454591
       }
@@ -1495,19 +1633,19 @@
         "aircraft": "A320"
       }
     ],
-    "note_vs_oneway": "RT AV78+vuelta 1574680 vs sueltos GF 906980+735901=1642881. RT AV92+vuelta 2483630 vs sueltos GF 1894790+735901=2630691."
+    "note_vs_oneway": "RT AV78+vuelta 1601400 vs sueltos GF 986140+786308=1772448. RT AV92+vuelta 2527220 vs sueltos GF 2091420+786308=2877728."
   },
   "oneway": {
-    "as_of": "2026-08-28T11:26:40.686278-05:00",
-    "source": "Radar 30min: GF cash WebFetch + Kayak browserUse + LifeMiles OW (KLAUS Elite 5%, Light confirmado; tasas COP no reconfirmadas US$99.50). Sin pestaña nueva.",
+    "as_of": "2026-08-31T22:56:34.505928-05:00",
+    "source": "Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva.",
     "currency": "COP",
     "outbound_19oct": [
       {
         "flight": "AV92",
         "depart": "07:25",
         "arrive": "10:20",
-        "cash_cop": 1894790,
-        "light_millas": 40850,
+        "cash_cop": 2091420,
+        "light_millas": 33880,
         "classic": 44020,
         "flex": 47180,
         "taxes_cop": 307591
@@ -1516,7 +1654,7 @@
         "flight": "AV78",
         "depart": "14:00",
         "arrive": "17:00",
-        "cash_cop": 906980,
+        "cash_cop": 986140,
         "light_millas": 12290,
         "classic": 15750,
         "flex": 16560,
@@ -1528,43 +1666,44 @@
         "flight": "AV93",
         "depart": "11:35",
         "arrive": "12:30",
-        "cash_cop": 735901,
+        "cash_cop": 786308,
         "light_millas": 8770,
         "taxes_cop": 213091,
-        "prev_cash_cop": 734085
+        "prev_cash_cop": 786308
       },
       {
         "flight": "AV79",
         "depart": "18:15",
         "arrive": "19:10",
-        "cash_cop": 735901,
-        "light_millas": 8770,
+        "cash_cop": 817849,
+        "light_millas": 15200,
         "taxes_cop": 213091,
         "seats_left_light": 2,
-        "prev_cash_cop": 734085
+        "prev_cash_cop": 817849,
+        "prev_light_millas": 8770
       }
     ]
   },
   "kayak": {
-    "as_of": "2026-08-28T11:26:40.686278-05:00",
-    "source": "Radar 30min: GF cash WebFetch + Kayak browserUse + LifeMiles OW (KLAUS Elite 5%, Light confirmado; tasas COP no reconfirmadas US$99.50). Sin pestaña nueva.",
+    "as_of": "2026-08-31T22:56:34.505928-05:00",
+    "source": "Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva.",
     "oneway": {
       "outbound_19oct": [
         {
           "flight": "AV92",
           "depart": "07:25",
           "arrive": "10:20",
-          "cash_cop": 1847422,
+          "cash_cop": 2086708,
           "fare": "Light",
-          "prev_cash_cop": 1847972
+          "prev_cash_cop": 2003267
         },
         {
           "flight": "AV78",
           "depart": "14:00",
           "arrive": "17:00",
-          "cash_cop": 881282,
+          "cash_cop": 977498,
           "fare": "Light",
-          "prev_cash_cop": 881282
+          "prev_cash_cop": 937949
         }
       ],
       "return_24oct": [
@@ -1572,17 +1711,17 @@
           "flight": "AV93",
           "depart": "11:35",
           "arrive": "12:30",
-          "cash_cop": 730600,
+          "cash_cop": 766673,
           "fare": "Light",
-          "prev_cash_cop": 699158
+          "prev_cash_cop": 758666
         },
         {
           "flight": "AV79",
           "depart": "18:15",
           "arrive": "19:10",
-          "cash_cop": 730600,
+          "cash_cop": 798673,
           "fare": "Light",
-          "prev_cash_cop": 699158
+          "prev_cash_cop": 798673
         }
       ]
     },
@@ -1591,25 +1730,25 @@
         {
           "outbound": "AV92 07:25-10:20",
           "return": "AV93 11:35-12:30",
-          "cash_cop": 2483640,
+          "cash_cop": 2527230,
           "fare": "Light"
         },
         {
           "outbound": "AV78 14:00-17:00",
           "return": "AV93 11:35-12:30",
-          "cash_cop": 1574680,
+          "cash_cop": 1601410,
           "fare": "Light"
         },
         {
           "outbound": "AV78 14:00-17:00",
           "return": "AV79 18:15-19:10",
-          "cash_cop": 1574680,
+          "cash_cop": 1680400,
           "fare": "Light"
         },
         {
           "outbound": "AV92 07:25-10:20",
           "return": "AV79 18:15-19:10",
-          "cash_cop": 2483640,
+          "cash_cop": 2637100,
           "fare": "Light"
         }
       ]
@@ -1622,7 +1761,7 @@
         "rt_cheapest_cop": 1574681,
         "note": "ads Kayak: OW ida AV78 906999 Económica; OW regreso 730604; RT 1574681"
       },
-      "note": "AV92 cash GF UNCHANGED 1894790. millas UNCHANGED 40850 + 307591. AV78 OW 906980 sin cambio. GF OW CUR-BOG AV93/AV79 734085→735901 (+1816). Kayak OW idas AV92 1847972→1847422; AV78 881282→881282. Kayak OW regresos AV93 699158→730600; AV79 699158→730600. Radar 30min: GF cash WebFetch + Kayak browserUse + LifeMiles OW (KLAUS Elite 5%, Light confirmado; tasas COP no reconfirmadas US$99.50). Sin pestaña nueva."
+      "note": "AV92 cash GF UNCHANGED 2091420. millas UNCHANGED 33880 + 307591. AV78 OW 986140 sin cambio. GF OW regresos AV93 786308 / AV79 817849 sin cambio. GF RT 1601400/2527220 sin cambio. Kayak OW idas AV92 2003267→2086708 (+83441); AV78 937949→977498 (+39549). Kayak OW regresos AV93 758666→766673 (+8007); AV79 798673 sin cambio. Kayak RT AV78+AV93 1601410 / AV78+AV79 1680400 / AV92+AV93 2527230 / AV92+AV79 2637100. LM regreso AV79 Light 8770→15200 (+6430); AV93 Light 8770 sin cambio. Radar 31 ago ~22:52 COT: GF cash WebFetch + Kayak browserUse (pestañas existentes) + LifeMiles OW/return (KLAUS Elite 5%, Light AV92 33880 / AV78 12290 + US$99.50; regresos AV93 8770 / AV79 15200 + US$68.30; Plus AV92 32100). Sin pestaña nueva."
     }
   }
 }
