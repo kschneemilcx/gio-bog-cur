@@ -9,9 +9,9 @@
     "baseline": 914000,
     "lowest": 914000,
     "highest": 2262580,
-    "latest": 2262580,
+    "latest": 2242750,
     "source": "Google Flights one-way",
-    "as_of": "2026-09-01T21:17:46.325184-05:00",
+    "as_of": "2026-09-02T09:09:21.070913-05:00",
     "user_yesterday_cop": 914000
   },
   "lifemiles": {
@@ -27,7 +27,7 @@
     "flex": 47180,
     "lifemiles_plus": 38550,
     "source": "lifemiles.com, Elite list view: AV92 Light Elite 40690 + US$99.50; AV78 12290; Regresos: AV93 Light 8770 + US$68.30; AV79 Light 15200 + US$68.30. Tasas COP 307591.",
-    "as_of": "2026-09-01T21:17:46.325184-05:00"
+    "as_of": "2026-09-02T09:09:21.070913-05:00"
   },
   "history": [
     {
@@ -1715,14 +1715,41 @@
       "kayak_return_prev_cash_cop": 822322,
       "ow_return_av79_cash_cop": 883317,
       "ow_return_av79_prev_cash_cop": 893828
+    },
+    {
+      "ts": "2026-09-02T09:09:21.070913-05:00",
+      "weekday": "miércoles",
+      "hour_cot": 9,
+      "cash_cop": 2242750,
+      "lifemiles": 40690,
+      "taxes_cop": 307591,
+      "fare": "Light",
+      "flight_number": "AV92",
+      "source": "Radar diario 2 sep ~09:05 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF curl+WebFetch: OW AV92 2242750 (−19830), AV78 1041680 (−8520); OW regresos AV93 840562 (−7715), AV79 871112 (−12205); RT AV78 1592710 (−13640) / AV92 2513170 (−22280). LM KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 sin cambio. Regresos LM not_read (carry 8770/15200). Kayak OW/RT sin cambio: OW AV92 2153400 / AV78 985674; regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+      "detail": "AV92 cash GF 2262580→2242750 (-19830). millas UNCHANGED 40690 + 307591. AV78 OW 1050200→1041680 (-8520). GF OW regresos AV93 848277→840562 (-7715); AV79 883317→871112 (-12205). GF RT AV78 1606350→1592710 (-13640); GF RT AV92 2535450→2513170 (-22280). Radar diario 2 sep ~09:05 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF curl+WebFetch: OW AV92 2242750 (−19830), AV78 1041680 (−8520); OW regresos AV93 840562 (−7715), AV79 871112 (−12205); RT AV78 1592710 (−13640) / AV92 2513170 (−22280). LM KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 sin cambio. Regresos LM not_read (carry 8770/15200). Kayak OW/RT sin cambio: OW AV92 2153400 / AV78 985674; regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+      "ow_return_cash_cop": 840562,
+      "ow_return_prev_cash_cop": 848277,
+      "av78_cash_cop": 1041680,
+      "av78_prev_cash_cop": 1050200,
+      "av92_prev_cash_cop": 2262580,
+      "av92_rt_cash_cop": 2513170,
+      "av92_rt_prev_cash_cop": 2535450,
+      "av78_rt_cash_cop": 1592710,
+      "av78_rt_prev_cash_cop": 1606350,
+      "kayak_av92_cash_cop": 2153400,
+      "kayak_av78_cash_cop": 985674,
+      "kayak_return_cash_cop": 822322,
+      "kayak_return_prev_cash_cop": 822322,
+      "ow_return_av79_cash_cop": 871112,
+      "ow_return_av79_prev_cash_cop": 883317
     }
   ],
   "arrive": "10:20",
   "duration": "1h55",
   "direct": true,
   "notes": {
-    "avianca_1400_oneway_cop": 1050200,
-    "google_route_insight": "AV92 OW 2262580; AV78 OW 1050200; regresos GF 848277/883317; RT AV78 1606350, RT AV92 2535450"
+    "avianca_1400_oneway_cop": 1041680,
+    "google_route_insight": "AV92 OW 2242750; AV78 OW 1041680; regresos GF 840562/871112; RT AV78 1592710, RT AV92 2513170"
   },
   "stats": {
     "by_weekday": {},
@@ -1735,9 +1762,9 @@
     "outbound_date": "2026-10-19",
     "return_date": "2026-10-24",
     "currency": "COP",
-    "as_of": "2026-09-01T21:17:46.325184-05:00",
-    "source": "Radar 1 sep ~21:11 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF tabs 8/3/14: OW AV92 2262580, AV78 1050200; OW regresos AV93 848277 (−10094), AV79 883317 (−10511); RT AV78 1606350 / AV92 2535450 sin cambio. LM tab 13 KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290. Tab 9 sin sesión (regresos LM carry 8770/15200). Kayak tabs 10/1/0 sin cambio: OW AV92 2153400 / AV78 985674; OW regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
-    "cheapest_cash_cop": 1606350,
+    "as_of": "2026-09-02T09:09:21.070913-05:00",
+    "source": "Radar diario 2 sep ~09:05 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF curl+WebFetch: OW AV92 2242750 (−19830), AV78 1041680 (−8520); OW regresos AV93 840562 (−7715), AV79 871112 (−12205); RT AV78 1592710 (−13640) / AV92 2513170 (−22280). LM KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 sin cambio. Regresos LM not_read (carry 8770/15200). Kayak OW/RT sin cambio: OW AV92 2153400 / AV78 985674; regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+    "cheapest_cash_cop": 1592710,
     "cheapest_label": "AV78 14:00 + AV93 11:35 o AV79 18:15",
     "flights_outbound": [
       {
@@ -1751,7 +1778,7 @@
         ],
         "stops": 0,
         "duration": "2h00",
-        "cash_cop": 1606350,
+        "cash_cop": 1592710,
         "direct": true
       },
       {
@@ -1765,7 +1792,7 @@
         ],
         "stops": 0,
         "duration": "1h55",
-        "cash_cop": 2535450,
+        "cash_cop": 2513170,
         "direct": true
       }
     ],
@@ -1835,7 +1862,7 @@
       "av92_av79_light": 55890
     },
     "lowest_cash_cop": 1562660,
-    "latest_cheapest_cash_cop": 1606350,
+    "latest_cheapest_cash_cop": 1592710,
     "history": [
       {
         "ts": "2026-08-27T13:19:24.383412-05:00",
@@ -3135,6 +3162,48 @@
         "av78_av79_light": 27490,
         "av92_av79_light": 55890,
         "ow_return_av79_cash_cop": 883317
+      },
+      {
+        "ts": "2026-09-02T01:33:19.692705-05:00",
+        "weekday": "miércoles",
+        "hour_cot": 1,
+        "cheapest_cash_cop": 1606350,
+        "av92_rt_cash_cop": 2535450,
+        "av78_rt_cash_cop": 1606350,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 49460,
+        "taxes_cop_rt": 454591,
+        "ow_return_cash_cop": 848277,
+        "ow_return_taxes_cop": 213091,
+        "kayak_av92_ow": 2153400,
+        "kayak_av78_ow": 985674,
+        "kayak_return_ow": 822322,
+        "source": "Radar 1 sep ~21:11 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF tabs 8/3/14: OW AV92 2262580, AV78 1050200; OW regresos AV93 848277 (−10094), AV79 883317 (−10511); RT AV78 1606350 / AV92 2535450 sin cambio. LM tab 13 KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290. Tab 9 sin sesión (regresos LM carry 8770/15200). Kayak tabs 10/1/0 sin cambio: OW AV92 2153400 / AV78 985674; OW regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+        "detail": "AV92 cash GF UNCHANGED 2262580. millas UNCHANGED 40690 + 307591. AV78 OW 1050200 sin cambio. Radar 1 sep ~21:11 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF tabs 8/3/14: OW AV92 2262580, AV78 1050200; OW regresos AV93 848277 (−10094), AV79 883317 (−10511); RT AV78 1606350 / AV92 2535450 sin cambio. LM tab 13 KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290. Tab 9 sin sesión (regresos LM carry 8770/15200). Kayak tabs 10/1/0 sin cambio: OW AV92 2153400 / AV78 985674; OW regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+        "av78_av79_light": 27490,
+        "av92_av79_light": 55890,
+        "ow_return_av79_cash_cop": 883317
+      },
+      {
+        "ts": "2026-09-02T09:09:21.070913-05:00",
+        "weekday": "miércoles",
+        "hour_cot": 9,
+        "cheapest_cash_cop": 1592710,
+        "av92_rt_cash_cop": 2513170,
+        "av78_rt_cash_cop": 1592710,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 49460,
+        "taxes_cop_rt": 454591,
+        "ow_return_cash_cop": 840562,
+        "ow_return_taxes_cop": 213091,
+        "kayak_av92_ow": 2153400,
+        "kayak_av78_ow": 985674,
+        "kayak_return_ow": 822322,
+        "source": "Radar diario 2 sep ~09:05 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF curl+WebFetch: OW AV92 2242750 (−19830), AV78 1041680 (−8520); OW regresos AV93 840562 (−7715), AV79 871112 (−12205); RT AV78 1592710 (−13640) / AV92 2513170 (−22280). LM KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 sin cambio. Regresos LM not_read (carry 8770/15200). Kayak OW/RT sin cambio: OW AV92 2153400 / AV78 985674; regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+        "detail": "AV92 cash GF 2262580→2242750 (-19830). millas UNCHANGED 40690 + 307591. AV78 OW 1050200→1041680 (-8520). GF OW regresos AV93 848277→840562 (-7715); AV79 883317→871112 (-12205). GF RT AV78 1606350→1592710 (-13640); GF RT AV92 2535450→2513170 (-22280). Radar diario 2 sep ~09:05 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF curl+WebFetch: OW AV92 2242750 (−19830), AV78 1041680 (−8520); OW regresos AV93 840562 (−7715), AV79 871112 (−12205); RT AV78 1592710 (−13640) / AV92 2513170 (−22280). LM KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 sin cambio. Regresos LM not_read (carry 8770/15200). Kayak OW/RT sin cambio: OW AV92 2153400 / AV78 985674; regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+        "av78_av79_light": 27490,
+        "av92_av79_light": 55890,
+        "ow_return_av79_cash_cop": 871112
       }
     ],
     "airline": "Avianca both legs",
@@ -3142,28 +3211,28 @@
       {
         "outbound": "AV78 14:00-17:00",
         "return": "AV93 11:35-12:30",
-        "cash_cop": 1606350,
+        "cash_cop": 1592710,
         "light_millas": 21060,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV78 14:00-17:00",
         "return": "AV79 18:15-19:10",
-        "cash_cop": 1606350,
+        "cash_cop": 1592710,
         "light_millas": 27490,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV92 07:25-10:20",
         "return": "AV93 11:35-12:30",
-        "cash_cop": 2535450,
+        "cash_cop": 2513170,
         "light_millas": 42650,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV92 07:25-10:20",
         "return": "AV79 18:15-19:10",
-        "cash_cop": 2535450,
+        "cash_cop": 2513170,
         "light_millas": 49080,
         "taxes_cop": 454591
       }
@@ -3190,18 +3259,18 @@
         "aircraft": "A320"
       }
     ],
-    "note_vs_oneway": "RT AV78+vuelta 1606350 vs sueltos GF 1050200+848277=1898477. RT AV92+vuelta 2535450 vs sueltos GF 2262580+848277=3110857."
+    "note_vs_oneway": "RT AV78+vuelta 1592710 vs sueltos GF 1041680+840562=1882242. RT AV92+vuelta 2513170 vs sueltos GF 2242750+840562=3083312."
   },
   "oneway": {
-    "as_of": "2026-09-01T21:17:46.325184-05:00",
-    "source": "Radar 1 sep ~21:11 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF tabs 8/3/14: OW AV92 2262580, AV78 1050200; OW regresos AV93 848277 (−10094), AV79 883317 (−10511); RT AV78 1606350 / AV92 2535450 sin cambio. LM tab 13 KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290. Tab 9 sin sesión (regresos LM carry 8770/15200). Kayak tabs 10/1/0 sin cambio: OW AV92 2153400 / AV78 985674; OW regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
+    "as_of": "2026-09-02T09:09:21.070913-05:00",
+    "source": "Radar diario 2 sep ~09:05 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF curl+WebFetch: OW AV92 2242750 (−19830), AV78 1041680 (−8520); OW regresos AV93 840562 (−7715), AV79 871112 (−12205); RT AV78 1592710 (−13640) / AV92 2513170 (−22280). LM KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 sin cambio. Regresos LM not_read (carry 8770/15200). Kayak OW/RT sin cambio: OW AV92 2153400 / AV78 985674; regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990.",
     "currency": "COP",
     "outbound_19oct": [
       {
         "flight": "AV92",
         "depart": "07:25",
         "arrive": "10:20",
-        "cash_cop": 2262580,
+        "cash_cop": 2242750,
         "light_millas": 40690,
         "classic": 44020,
         "flex": 47180,
@@ -3212,7 +3281,7 @@
         "flight": "AV78",
         "depart": "14:00",
         "arrive": "17:00",
-        "cash_cop": 1050200,
+        "cash_cop": 1041680,
         "light_millas": 12290,
         "classic": 15750,
         "flex": 16560,
@@ -3224,26 +3293,26 @@
         "flight": "AV93",
         "depart": "11:35",
         "arrive": "12:30",
-        "cash_cop": 848277,
+        "cash_cop": 840562,
         "light_millas": 8770,
         "taxes_cop": 213091,
-        "prev_cash_cop": 858371
+        "prev_cash_cop": 848277
       },
       {
         "flight": "AV79",
         "depart": "18:15",
         "arrive": "19:10",
-        "cash_cop": 883317,
+        "cash_cop": 871112,
         "light_millas": 15200,
         "taxes_cop": 213091,
         "seats_left_light": 2,
-        "prev_cash_cop": 893828,
+        "prev_cash_cop": 883317,
         "prev_light_millas": 8770
       }
     ]
   },
   "kayak": {
-    "as_of": "2026-09-01T21:17:46.325184-05:00",
+    "as_of": "2026-09-02T09:09:21.070913-05:00",
     "source": "Radar 1 sep ~16:20 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF cash WebFetch/curl OW+RT+regresos: AV92 2262580, AV78 1050200, AV93 857701, AV79 893130; RT AV78 1606350 / AV92 2535450. LM tab 13 KLAUS Elite 5% BOG-CUR 19 oct: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 + US$97.50. Tabs 5/6/9 CUR-BOG error (regresos carry 8770/15200). Kayak OW ida AV92 2152800 / AV78 985674; OW regresos AV93 762781 / AV79 801060; RT AV78+AV93 1606350 / AV78+AV79 1690880 / AV92+AV93 2535460 / AV92+AV79 2619990.",
     "oneway": {
       "outbound_19oct": [
@@ -3319,7 +3388,7 @@
         "rt_cheapest_cop": 1574681,
         "note": "ads Kayak: OW ida AV78 906999 Económica; OW regreso 730604; RT 1574681"
       },
-      "note": "AV92 cash GF UNCHANGED 2262580. millas UNCHANGED 40690 + 307591. AV78 OW 1050200 sin cambio. GF OW regresos AV93 858371→848277 (-10094); AV79 893828→883317 (-10511). Radar 1 sep ~21:11 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF tabs 8/3/14: OW AV92 2262580, AV78 1050200; OW regresos AV93 848277 (−10094), AV79 883317 (−10511); RT AV78 1606350 / AV92 2535450 sin cambio. LM tab 13 KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290. Tab 9 sin sesión (regresos LM carry 8770/15200). Kayak tabs 10/1/0 sin cambio: OW AV92 2153400 / AV78 985674; OW regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990."
+      "note": "AV92 cash GF 2262580→2242750 (-19830). millas UNCHANGED 40690 + 307591. AV78 OW 1050200→1041680 (-8520). GF OW regresos AV93 848277→840562 (-7715); AV79 883317→871112 (-12205). GF RT AV78 1606350→1592710 (-13640); GF RT AV92 2535450→2513170 (-22280). Radar diario 2 sep ~09:05 COT: pestañas existentes reutilizadas (sin LM/WA nuevas). GF curl+WebFetch: OW AV92 2242750 (−19830), AV78 1041680 (−8520); OW regresos AV93 840562 (−7715), AV79 871112 (−12205); RT AV78 1592710 (−13640) / AV92 2513170 (−22280). LM KLAUS Elite 5% BOG-CUR: AV92 Light 40690 + US$97.50 (list 42840, Plus 38550); AV78 Light 12290 sin cambio. Regresos LM not_read (carry 8770/15200). Kayak OW/RT sin cambio: OW AV92 2153400 / AV78 985674; regresos AV93 822322 / AV79 855349; RT 1606350 / 1690880 / 2535460 / 2619990."
     }
   }
 }
