@@ -9,9 +9,9 @@
     "baseline": 914000,
     "lowest": 914000,
     "highest": 2262580,
-    "latest": 2262580,
-    "source": "Google Flights one-way",
-    "as_of": "2026-09-03T09:17:18.934728-05:00",
+    "latest": 2214110,
+    "source": "Google Flights one-way (WebFetch)",
+    "as_of": "2026-09-03T10:57:02-05:00",
     "user_yesterday_cop": 914000
   },
   "lifemiles": {
@@ -1796,6 +1796,25 @@
       "kayak_return_prev_cash_cop": 822322,
       "ow_return_av79_cash_cop": 883317,
       "ow_return_av79_prev_cash_cop": 871112
+    },
+    {
+      "ts": "2026-09-03T10:57:02-05:00",
+      "weekday": "jueves",
+      "hour_cot": 10,
+      "cash_cop": 2214110,
+      "lifemiles": 40690,
+      "taxes_cop": 307591,
+      "fare": "Light",
+      "flight_number": "AV92",
+      "source": "Radar recuperación 3 sep 2026 10:57 COT: Google Flights WebFetch OW+RT; Kayak y LifeMiles not_read (herramientas de navegador no disponibles; sin abrir pestañas nuevas)",
+      "detail": "GF vs baseline 2 sep 11:37 COT: OW AV92 2242750→2214110 (-28640); AV78 1041680→1029350 (-12330); AV93 840562→838446 (-2116); AV79 871112→873080 (+1968). RT AV78 1592710→1572960 (-19750); AV92 2513170→2480820 (-32350). Kayak y LifeMiles no re-leídos.",
+      "gf_ow_av78_cop": 1029350,
+      "gf_ow_av93_cop": 838446,
+      "gf_ow_av79_cop": 873080,
+      "gf_rt_av78_cop": 1572960,
+      "gf_rt_av92_cop": 2480820,
+      "kayak_status": "not_read",
+      "lifemiles_status": "not_read"
     }
   ],
   "arrive": "10:20",
@@ -1816,9 +1835,9 @@
     "outbound_date": "2026-10-19",
     "return_date": "2026-10-24",
     "currency": "COP",
-    "as_of": "2026-09-03T09:17:18.934728-05:00",
-    "source": "Radar 3 sep 2026 ~08:57 COT — GF y Kayak leídos en pestañas existentes; LifeMiles not_read (spinner/error)",
-    "cheapest_cash_cop": 1606350,
+    "as_of": "2026-09-03T10:57:02-05:00",
+    "source": "Radar recuperación 3 sep 2026 10:57 COT: Google Flights WebFetch OW+RT; Kayak y LifeMiles not_read (herramientas de navegador no disponibles; sin abrir pestañas nuevas)",
+    "cheapest_cash_cop": 1572960,
     "cheapest_label": "AV78 14:00 + AV93 11:35 o AV79 18:15",
     "flights_outbound": [
       {
@@ -1832,7 +1851,7 @@
         ],
         "stops": 0,
         "duration": "2h00",
-        "cash_cop": 1606350,
+        "cash_cop": 1572960,
         "direct": true
       },
       {
@@ -1846,7 +1865,7 @@
         ],
         "stops": 0,
         "duration": "1h55",
-        "cash_cop": 2535450,
+        "cash_cop": 2480820,
         "direct": true
       }
     ],
@@ -3300,6 +3319,29 @@
         "av78_av79_light": 27490,
         "av92_av79_light": 55890,
         "ow_return_av79_cash_cop": 883317
+      },
+      {
+        "ts": "2026-09-03T10:57:02-05:00",
+        "weekday": "jueves",
+        "hour_cot": 10,
+        "cheapest_cash_cop": 1572960,
+        "av92_rt_cash_cop": 2480820,
+        "av78_rt_cash_cop": 1572960,
+        "av78_av93_light": 21060,
+        "av92_av93_light": 49460,
+        "taxes_cop_rt": 454591,
+        "ow_return_cash_cop": 838446,
+        "ow_return_av79_cash_cop": 873080,
+        "ow_return_taxes_cop": 213091,
+        "kayak_av92_ow": 2153400,
+        "kayak_av78_ow": 985674,
+        "kayak_return_ow": 822322,
+        "source": "Radar recuperación 3 sep 2026 10:57 COT: Google Flights WebFetch OW+RT; Kayak y LifeMiles not_read (herramientas de navegador no disponibles; sin abrir pestañas nuevas)",
+        "detail": "GF vs baseline 2 sep 11:37 COT: OW AV92 2242750→2214110 (-28640); AV78 1041680→1029350 (-12330); AV93 840562→838446 (-2116); AV79 871112→873080 (+1968). RT AV78 1592710→1572960 (-19750); AV92 2513170→2480820 (-32350). Kayak y LifeMiles no re-leídos.",
+        "av78_av79_light": 27490,
+        "av92_av79_light": 55890,
+        "kayak_status": "not_read",
+        "lifemiles_status": "not_read"
       }
     ],
     "airline": "Avianca both legs",
@@ -3307,28 +3349,28 @@
       {
         "outbound": "AV78 14:00-17:00",
         "return": "AV93 11:35-12:30",
-        "cash_cop": 1606350,
+        "cash_cop": 1572960,
         "light_millas": 21060,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV78 14:00-17:00",
         "return": "AV79 18:15-19:10",
-        "cash_cop": 1606350,
+        "cash_cop": 1572960,
         "light_millas": 27490,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV92 07:25-10:20",
         "return": "AV93 11:35-12:30",
-        "cash_cop": 2535450,
+        "cash_cop": 2480820,
         "light_millas": 42650,
         "taxes_cop": 454591
       },
       {
         "outbound": "AV92 07:25-10:20",
         "return": "AV79 18:15-19:10",
-        "cash_cop": 2535450,
+        "cash_cop": 2480820,
         "light_millas": 49080,
         "taxes_cop": 454591
       }
@@ -3355,33 +3397,35 @@
         "aircraft": "A320"
       }
     ],
-    "note_vs_oneway": "RT AV78+vuelta 1606350 vs sueltos GF 1050200+848277=1898477. RT AV92+vuelta 2535450 vs sueltos GF 2262580+848277=3110857."
+    "note_vs_oneway": "RT AV78+vuelta 1572960 vs sueltos GF 1029350+838446=1867796. RT AV92+vuelta 2480820 vs sueltos GF 2214110+838446=3052556."
   },
   "oneway": {
-    "as_of": "2026-09-03T09:17:18.934728-05:00",
-    "source": "Radar 3 sep 2026 ~08:57 COT — GF y Kayak leídos en pestañas existentes; LifeMiles not_read (spinner/error)",
+    "as_of": "2026-09-03T10:57:02-05:00",
+    "source": "Radar recuperación 3 sep 2026 10:57 COT: Google Flights WebFetch OW+RT; Kayak y LifeMiles not_read (herramientas de navegador no disponibles; sin abrir pestañas nuevas)",
     "currency": "COP",
     "outbound_19oct": [
       {
         "flight": "AV92",
         "depart": "07:25",
         "arrive": "10:20",
-        "cash_cop": 2262580,
+        "cash_cop": 2214110,
         "light_millas": 40690,
         "classic": 44020,
         "flex": 47180,
         "taxes_cop": 307591,
-        "list_before_elite": 42840
+        "list_before_elite": 42840,
+        "prev_cash_cop": 2262580
       },
       {
         "flight": "AV78",
         "depart": "14:00",
         "arrive": "17:00",
-        "cash_cop": 1050200,
+        "cash_cop": 1029350,
         "light_millas": 12290,
         "classic": 15750,
         "flex": 16560,
-        "taxes_cop": 307591
+        "taxes_cop": 307591,
+        "prev_cash_cop": 1050200
       }
     ],
     "return_24oct": [
@@ -3389,20 +3433,20 @@
         "flight": "AV93",
         "depart": "11:35",
         "arrive": "12:30",
-        "cash_cop": 848277,
+        "cash_cop": 838446,
         "light_millas": 8770,
         "taxes_cop": 213091,
-        "prev_cash_cop": 840562
+        "prev_cash_cop": 848277
       },
       {
         "flight": "AV79",
         "depart": "18:15",
         "arrive": "19:10",
-        "cash_cop": 883317,
+        "cash_cop": 873080,
         "light_millas": 15200,
         "taxes_cop": 213091,
         "seats_left_light": 2,
-        "prev_cash_cop": 871112,
+        "prev_cash_cop": 883317,
         "prev_light_millas": 8770
       }
     ]
